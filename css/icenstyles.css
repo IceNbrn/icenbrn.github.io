@@ -136,6 +136,14 @@ body {
     background-size: cover;
 }
 
+.masthead-faraday {
+    background: linear-gradient(to bottom, rgb(0 0 0 / 49%) 0%, rgb(255 108 0 / 19%) 100%), url(../images/faraday_2.png);
+    background-position: middle;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
 .d-flex {
     display: flex !important;
 }
