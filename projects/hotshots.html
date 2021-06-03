@@ -35,12 +35,49 @@
   <body>
     
 <header>
+  <div class="collapse bg-blue-icen" id="aboutMe">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-white">Hello, I'm Bruno Castanheira, a Game Developer, and also a gamer from Portugal. Video games are my passion since I was a child. So combining programming and video games, it's someting that I love to do.</p>
+          <p class="text-white">Also I have a degree in Digital Games Development Engineering</p>
+          <p class="text-white">
+            I have experience with <b>C#, C++, Java, Unity, Unigine Engine</b>. C# it's the one I used it most, for Unity, and Mono Game.  
+          </p>
+          <p class="text-white">
+            Java was the first language, in that time I was playing Minecraft and I got interested in creating plugins for it, that's why Java was my first programming language.
+          </p>
+          <p class="text-white">
+            C# it's been my top language, it's the one that I'm more comfortable with.
+          </p>
+          <p class="text-white">
+            On the C++ side, I started learning it at the University for a 3D Graphics Application. Recently I saw the Unigine Engine witch has support for C# and C++, since I already have more experience with C#, C++ was the way to go.
+          </p>
+          
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-twitter-square fa-2x m-md-1"></i>Twitter</a></li>
+            <li><a href="#" class="text-white text-decoration-none"><i class="fas fa-envelope-square fa-2x m-md-1"></i>Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="navbar navbar-dark bg-blue-icen shadow-sm">
     <div class="container">
       <a href="../index.html" class="navbar-brand d-flex align-items-end">
         <strong>Bruno Castanheira</strong>
       </a>
-      <a href="../index.html" class="text-white text-decoration-none"><i class="fas fa-caret-square-left fa-2x nav-text"></i></a>
+      <div class="navbar-brand d-flex align-items-end">
+      <a href="../index.html" class="text-white text-decoration-none"><i class="fas fa-caret-square-left fa-1x nav-text"></i></a>
+      &nbsp;
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aboutMe" aria-controls="aboutMe" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars fa-1x"></i>
+      </button>
+      </div>
     </div>
   </div>
 </header>
@@ -74,40 +111,77 @@
           </div>
           <p>This game was made by me and a group of friends, we even have a name for it, TMWStudios. <br>
           To make this game we were inspired by a friend that is a firefighter, so we made HotShots. <br>
-          The player plays as the commander of a firehouse, where he needs to manage, buy, and even helping on the field. <br><br>
-          The game right now has 3 vehicles </p>
-          <div class="col">
+          The player plays as the commander of a firehouse, where he needs to manage, buy, and even helping on the field. <br>
+          Right now the game has 3 vehicles.</p>
+          <div class="row">
             <div class="col-md-6 container">
               <img class="card-img-top" data-src="" src="../images/hotshots_shop.jpg" data-holder-rendered="true">
             </div>
           </div>
           <p>Each vehicle has a price and depending on its function it can be more expensive.</p>
           <p>The main objective of the game is to put out fires. When you complete a mission, you will receive a reward.</p>
-          <div class="col">
+          <div class="row">
             <div class="col-md-6 container">
               <img class="card-img-top" data-src="" src="../images/fire_anim_v3.gif" data-holder-rendered="true">
             </div>
           </div>
-          <p>So one of the features that I made, water system. Gives the ability to fill up the vehicles water tank or even transfer to other vehicle.</p>
-          <p>To use it, there's a hose, the player needs to attach to a vehicle and to a water source, that can be a hydrant or a vehicle</p>
-          <div class="col">
+          <div class="row">
+            <p>The Shoping / Garage System, is the system to buy a new vehicles and spawn them in the correct garage. <br>
+            Every garage has an enum, the enum is the size of that garage that corresponds to the vehicle's size too, and it goes from small, medium and large.<br>
+            So another of the features that I made, water system. Gives the ability to fill up the vehicle water tank or even transfer to another vehicle.<br>
+            To use it, there's a hose, the player needs to attach it into a vehicle and to a water source, that can be a hydrant or a vehicle.</p>
+          </div>
+          <div class="row">
+            <div class="col-md-12 container">
+                <iframe
+                  src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=text%2Fx-csharp&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%2520%2520%2520%2520%255BSerializable%255D%250A%2520%2520%2520%2520public%2520enum%2520EVehicleSize%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520Small%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520Medium%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520Big%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%255BSerializable%255D%250A%2520%2520%2520%2520public%2520class%2520Garage%2520%253A%2520MonoBehaviour%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%255BSerializeField%255D%250A%2520%2520%2520%2520%2520%2520%2520%2520private%2520EVehicleSize%2520_sizeType%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520Assigned%2520vehicle%2520to%2520this%2520garage%250A%2520%2520%2520%2520%2520%2520%2520%2520private%2520VehicleInfo%2520_vehicleInfo%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520Vector3%2520GetPosition%28%29%2520%253D%253E%2520transform.position%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520Quaternion%2520GetRotation%28%29%2520%253D%253E%2520transform.rotation%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520void%2520AddVehicle%28VehicleInfo%2520vehicle%29%2520%253D%253E%2520_vehicleInfo%2520%253D%2520vehicle%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520VehicleInfo%2520GetVehicle%28%29%2520%253D%253E%2520_vehicleInfo%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520bool%2520IsOccupied%2520%253D%253E%2520_vehicleInfo%2520%21%253D%2520null%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520EVehicleSize%2520VehicleSize%2520%253D%253E%2520_sizeType%253B%250A%2520%2520%2520%2520%257D"
+                  style="width: 800px; height: 523px; border:0; transform: scale(1); overflow:hidden;"
+                  sandbox="allow-scripts allow-same-origin">
+              </iframe>
+            </div>
+          </div>
+          <p>When the player buys a new vehicle, the function <b>AddCarToGarage()</b> it's called, and tries to find an available garage.</p>
+          <div class="row">
+            <div class="col-md-12 container">
+              <iframe
+                src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=text%2Fx-csharp&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=30px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=public%2520bool%2520AddCarToGarage%28GameObject%2520vehicleObject%29%250A%257B%250A%2520%2520VehicleInfo%2520vehicle%2520%253D%2520vehicleObject.GetComponent%253CVehicleInfo%253E%28%29%253B%250A%2520%2520%252F%252F%2520Gets%2520an%2520available%2520garage.%2520Checks%2520if%2520it%27s%2520occupied%2520and%2520the%2520vehicle%2520size.%250A%2520%2520Garage%2520garage%2520%253D%2520_garages.Find%28x%2520%253D%253E%2520%21x.IsOccupied%2520%2526%2526%2520x.VehicleSize%2520%253D%253D%2520vehicle.SizeType%29%253B%250A%250A%2520%2520if%2520%28garage%2520%21%253D%2520null%29%250A%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520GameObject%2520newObject%2520%253D%2520Instantiate%28vehicleObject%252C%2520garage.GetPosition%28%29%252C%2520garage.GetRotation%28%29%29%253B%250A%2520%2520%2520%2520%2520%2520garage.AddVehicle%28newObject.GetComponent%253CVehicleInfo%253E%28%29%29%253B%250A%2520%2520%2520%2520%2520%2520VehicleDriverSeats%2520%252B%253D%25201%253B%250A%2520%2520%2520%2520%2520%2520VehicleSeats%2520%252B%253D%2520vehicle.Slots%253B%2520%250A%2520%2520%2520%2520%2520%2520%252F%252F%2520Success%252C%2520we%2520got%2520a%2520garage%2520available%250A%2520%2520%2520%2520%2520%2520return%2520true%253B%250A%2520%2520%257D%250A%2520%2520%252F%252F%2520Couldn%27t%2520find%2520an%2520available%2520garage%252C%2520so%2520return%2520false%250A%2520%2520return%2520false%253B%250A%257D"
+                style="width: 1000px; height: 410px; border:0; transform: scale(1); overflow:hidden;"
+                sandbox="allow-scripts allow-same-origin">
+              </iframe>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-6 container">
               <img class="card-img-top" data-src="" src="../images/hose_system.gif" data-holder-rendered="true">
             </div>
           </div>
-          <div class="col">
-            <iframe
-  src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%252F%252F%2520File%253A%2520WaterPump.cs%250A%255BSerializeField%255D%250Aprivate%2520float%2520_pumpRate%2520%253D%25201.5f%253B%250A%250Apublic%2520WaterTank%2520WaterTank1%252C%2520WaterTank2%253B%250Apublic%2520WaterPumpMode%2520Mode%2520%253D%2520WaterPumpMode.Refill%253B"
-  style="width: 680px; height: 200px; border:0; transform: scale(1); overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-          </div>
-          <div class="col">
+          
+          <p>Every single water tank has a pump, so technically, the water tank gives an "order" to the water pump.</p>
+
+          <div class="row">
             <div class="col-md-6 container">
-              <img class="card-img-top" data-src="" src="../images/water_tank_visual.png" data-holder-rendered="true">
+              <iframe
+                src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%252F%252F%2520File%253A%2520WaterPump.cs%250A%255BSerializeField%255D%250Aprivate%2520float%2520_pumpRate%2520%253D%25201.5f%253B%250A%250Apublic%2520WaterTank%2520WaterTank1%252C%2520WaterTank2%253B%250Apublic%2520WaterPumpMode%2520Mode%2520%253D%2520WaterPumpMode.Refill%253B"
+                style="width: 680px; height: 200px; border:0; transform: scale(1); overflow:hidden;"
+                sandbox="allow-scripts allow-same-origin">
+              </iframe>
             </div>
           </div>
-          <p>With this, the truck VUCI will start filling up</p>
+          <div class="row">
+            <div class="col-md-6 container">
+              <img class="card-img-top" data-src="" src="../images/water_tank_visual.jpg" data-holder-rendered="true">
+            </div>
+          </div>
+          <p>With this setup, the truck VUCI will start filling up with water. The pump on the truck "VALE" is working and the mode selected is empty, so it will empty the water to the other water tank (VUCI Water Tank)</p>
+          <div class="row">
+            <div class="col-md-12 container">
+              <iframe
+              src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=text%2Fx-csharp&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%252F%252F%2520-----------------------------------------------------------------------%250A%252F%252F%2520File%253A%2520WaterPump.cs%250A%250A%252F%252F%2520Doesn%27t%2520let%2520the%2520pump%2520work%252C%2520because%2520it%2520needs%25202%2520water%2520tanks%2520to%2520work.%250Aif%2520%28WaterTank1%2520%253D%253D%2520null%2520%257C%257C%2520WaterTank2%2520%253D%253D%2520null%29%2520%250A%2520%2520%2520%2520return%2520false%253B%250A%250A%252F%252F%2520Gets%2520the%2520amount%2520of%2520water%2520that%2520needs%2520to%2520be%2520transferred%2520%250Afloat%2520waterToEmpty%2520%253D%2520WaterTank1.WaterLoaded%253B%250A%250A%252F%252F%2520Make%2520sure%2520that%2520the%2520water%2520tank%2520target%2520has%2520enough%2520capacity%250Aif%2520%28waterToEmpty%2520%253E%2520WaterTank2.FreeCapacity%28%29%29%250A%257B%250A%2520%2520%2520%2520%252F%252F%2520Calculates%2520the%2520specific%2520amount%2520that%2520can%2520be%2520filled%2520to%2520the%2520water%2520tank%2520target%250A%2520%2520%2520%2520waterToEmpty%2520-%253D%2520waterToEmpty%2520-%2520WaterTank2.FreeCapacity%28%29%253B%250A%257D%250A%250AWaterTank2.AddWater%28waterToEmpty%29%253B%250AWaterTank1.RemoveWater%28waterToEmpty%29%253B%250A%250A%252F%252F%2520-----------------------------------------------------------------------%250A%252F%252F%2520File%253A%2520WaterTank.cs%250A%250Apublic%2520void%2520AddWater%28float%2520value%29%2520%253D%253E%2520_waterLoaded%2520%252B%253D%2520value%2520*%2520Time.deltaTime%253B"
+              style="width: 800px; height: 523px; border:0; transform: scale(1); overflow:hidden;"
+              sandbox="allow-scripts allow-same-origin">
+              </iframe>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -118,16 +192,17 @@
 <footer class="text-muted py-5">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 col-md-7 py-4">
-        <h4 class="text-dark">About</h4>
-        <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-      </div>
       <div class="col-sm-4 offset-md-1 py-4">
         <h4 class="text-dark">Contact</h4>
         <ul class="list-unstyled">
           <li><a href="#" class="text text-decoration-none"><i class="fab fa-twitter-square fa-2x nav-text"></i>&nbsp;Twitter</a></li>
           <li><a href="#" class="text text-decoration-none"><i class="fas fa-envelope-square fa-2x nav-text"></i>&nbsp;Email</a></li>
         </ul>
+        <a href="#aboutMe">
+          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#aboutMe" aria-controls="aboutMe" aria-expanded="false" aria-label="Toggle navigation">
+            About me
+          </button>
+        </a>
       </div>
     </div>
   </div>
