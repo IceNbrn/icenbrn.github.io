@@ -111,7 +111,7 @@
           </div>
           <p>This game was made by me and a group of friends, we even have a name for it, TMWStudios. <br>
           To make this game we were inspired by a friend that is a firefighter, so we made HotShots. <br>
-          The player plays as the commander of a firehouse, where he needs to manage, buy, and even helping on the field. <br>
+          The player is the commander of a firehouse, where he needs to manage, buy, and even helping on the field. <br>
           Right now the game has 3 vehicles.</p>
           <div class="row">
             <div class="col-md-6 container">
@@ -127,20 +127,10 @@
           </div>
           <div class="row">
             <p>The Shoping / Garage System, is the system to buy a new vehicles and spawn them in the correct garage. <br>
-            Every garage has an enum, the enum is the size of that garage that corresponds to the vehicle's size too, and it goes from small, medium and large.<br>
-            So another of the features that I made, water system. Gives the ability to fill up the vehicle water tank or even transfer to another vehicle.<br>
-            To use it, there's a hose, the player needs to attach it into a vehicle and to a water source, that can be a hydrant or a vehicle.</p>
+            Every garage has an enum, the enum is the size of that garage and corresponds to the vehicle's size too. The size goes from small to medium and large.<br>
+            
           </div>
-          <div class="row">
-            <div class="col-md-12 container">
-                <iframe
-                  src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=text%2Fx-csharp&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%2520%2520%2520%2520%255BSerializable%255D%250A%2520%2520%2520%2520public%2520enum%2520EVehicleSize%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520Small%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520Medium%252C%250A%2520%2520%2520%2520%2520%2520%2520%2520Big%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%255BSerializable%255D%250A%2520%2520%2520%2520public%2520class%2520Garage%2520%253A%2520MonoBehaviour%250A%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%255BSerializeField%255D%250A%2520%2520%2520%2520%2520%2520%2520%2520private%2520EVehicleSize%2520_sizeType%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520Assigned%2520vehicle%2520to%2520this%2520garage%250A%2520%2520%2520%2520%2520%2520%2520%2520private%2520VehicleInfo%2520_vehicleInfo%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520Vector3%2520GetPosition%28%29%2520%253D%253E%2520transform.position%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520Quaternion%2520GetRotation%28%29%2520%253D%253E%2520transform.rotation%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520void%2520AddVehicle%28VehicleInfo%2520vehicle%29%2520%253D%253E%2520_vehicleInfo%2520%253D%2520vehicle%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520VehicleInfo%2520GetVehicle%28%29%2520%253D%253E%2520_vehicleInfo%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520bool%2520IsOccupied%2520%253D%253E%2520_vehicleInfo%2520%21%253D%2520null%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520public%2520EVehicleSize%2520VehicleSize%2520%253D%253E%2520_sizeType%253B%250A%2520%2520%2520%2520%257D"
-                  style="width: 800px; height: 523px; border:0; transform: scale(1); overflow:hidden;"
-                  sandbox="allow-scripts allow-same-origin">
-              </iframe>
-            </div>
-          </div>
-          <p>When the player buys a new vehicle, the function <b>AddCarToGarage()</b> it's called, and tries to find an available garage.</p>
+          <p>When the player buys a new vehicle, the function <b>AddCarToGarage()</b> is called. It tries to find an available garage.</p>
           <div class="row">
             <div class="col-md-12 container">
               <iframe
@@ -150,6 +140,11 @@
               </iframe>
             </div>
           </div>
+          <p>
+            Another feature that I made was the water system. It gives you the ability to fill the vehicle's water tank or even transfer to another vehicle.<br>
+            To use it there's a hose. The player can attach it to vehicle and a water source, that can be a hydrant or another vehicle.</p>
+          </p>
+          
           <div class="row">
             <div class="col-md-6 container">
               <img class="card-img-top" data-src="" src="../images/hose_system.gif" data-holder-rendered="true">
@@ -157,16 +152,6 @@
           </div>
           
           <p>Every single water tank has a pump, so technically, the water tank gives an "order" to the water pump.</p>
-
-          <div class="row">
-            <div class="col-md-6 container">
-              <iframe
-                src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%252F%252F%2520File%253A%2520WaterPump.cs%250A%255BSerializeField%255D%250Aprivate%2520float%2520_pumpRate%2520%253D%25201.5f%253B%250A%250Apublic%2520WaterTank%2520WaterTank1%252C%2520WaterTank2%253B%250Apublic%2520WaterPumpMode%2520Mode%2520%253D%2520WaterPumpMode.Refill%253B"
-                style="width: 680px; height: 200px; border:0; transform: scale(1); overflow:hidden;"
-                sandbox="allow-scripts allow-same-origin">
-              </iframe>
-            </div>
-          </div>
           <div class="row">
             <div class="col-md-6 container">
               <img class="card-img-top" data-src="" src="../images/water_tank_visual.jpg" data-holder-rendered="true">
