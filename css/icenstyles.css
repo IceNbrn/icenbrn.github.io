@@ -2,7 +2,12 @@
     font-family: Inconsolata;
     src: url(../fonts/Inconsolata-Regular.ttf);
 }
-
+p {
+    color: #444648;
+}
+li {
+    color: #444648;
+}
 .bg-dark {
     background-color: #292929!important;
 }
