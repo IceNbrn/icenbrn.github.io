@@ -8,6 +8,10 @@ p {
 li {
     color: #444648;
 }
+::selection {
+    color: #0d6efd;
+    background: #292929 !important;
+}
 .bg-dark {
     background-color: #292929!important;
 }
