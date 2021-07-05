@@ -110,7 +110,7 @@ body {
 }
 
 code {
-    text-align: left;
+    text-align: left !important;
     background-color: #f3f3f3 !important;
 }
 
