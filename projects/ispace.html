@@ -133,6 +133,16 @@
                     _move *= _moveSpeed * Time.fixedDeltaTime;
                 }
                 
+                private void ControlHeight()
+                {
+                    float movementInput = _controls.Player.Height.ReadValue<float>();
+                    if (Mathf.Abs(movementInput) > 0.0001f)
+                    {
+                        _move += transform.up * movementInput;
+                        _move *= _heightSpeed * Time.fixedDeltaTime;
+                    }
+                }
+                
                 private void ControlVelocity()
                 {
                     _rigidbody.velocity += _move;
