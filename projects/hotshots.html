@@ -31,6 +31,7 @@
     <link href="../dist/css/features.css" rel="stylesheet">
     <link href="../css/icenstyles.css" rel="stylesheet">
     <link href="../dist/fontawesome/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../js/styles_languages/github.min.css">
   </head>
   <body>
     
@@ -151,11 +152,28 @@
                 </p>
                 <p>When the player buys a new vehicle, the function <b>AddCarToGarage()</b> is called. It tries to find an available garage.</p>
               </div>
-              <iframe class="col-md-12"
-                  src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=text%2Fx-csharp&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=30px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=public%2520bool%2520AddCarToGarage%28GameObject%2520vehicleObject%29%250A%257B%250A%2520%2520VehicleInfo%2520vehicle%2520%253D%2520vehicleObject.GetComponent%253CVehicleInfo%253E%28%29%253B%250A%2520%2520%252F%252F%2520Gets%2520an%2520available%2520garage.%2520Checks%2520if%2520it%27s%2520occupied%2520and%2520the%2520vehicle%2520size.%250A%2520%2520Garage%2520garage%2520%253D%2520_garages.Find%28x%2520%253D%253E%2520%21x.IsOccupied%2520%2526%2526%2520x.VehicleSize%2520%253D%253D%2520vehicle.SizeType%29%253B%250A%250A%2520%2520if%2520%28garage%2520%21%253D%2520null%29%250A%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520GameObject%2520newObject%2520%253D%2520Instantiate%28vehicleObject%252C%2520garage.GetPosition%28%29%252C%2520garage.GetRotation%28%29%29%253B%250A%2520%2520%2520%2520%2520%2520garage.AddVehicle%28newObject.GetComponent%253CVehicleInfo%253E%28%29%29%253B%250A%2520%2520%2520%2520%2520%2520VehicleDriverSeats%2520%252B%253D%25201%253B%250A%2520%2520%2520%2520%2520%2520VehicleSeats%2520%252B%253D%2520vehicle.Slots%253B%2520%250A%2520%2520%2520%2520%2520%2520%252F%252F%2520Success%252C%2520we%2520got%2520a%2520garage%2520available%250A%2520%2520%2520%2520%2520%2520return%2520true%253B%250A%2520%2520%257D%250A%2520%2520%252F%252F%2520Couldn%27t%2520find%2520an%2520available%2520garage%252C%2520so%2520return%2520false%250A%2520%2520return%2520false%253B%250A%257D"
-                  style="height:450px;"
-                  sandbox="allow-scripts allow-same-origin">
-                </iframe>
+              <pre class="col-md-12" style="margin-top: -3%;">
+                <code class="language-cs">
+                  public bool AddCarToGarage(GameObject vehicleObject)
+                  {
+                    VehicleInfo vehicle = vehicleObject.GetComponent<VehicleInfo>();
+                    // Gets an available garage. Checks if it's occupied and the vehicle size.
+                    Garage garage = _garages.Find(x => !x.IsOccupied && x.VehicleSize == vehicle.SizeType);
+                  
+                    if (garage != null)
+                    {
+                        GameObject newObject = Instantiate(vehicleObject, garage.GetPosition(), garage.GetRotation());
+                        garage.AddVehicle(newObject.GetComponent<VehicleInfo>());
+                        VehicleDriverSeats += 1;
+                        VehicleSeats += vehicle.Slots; 
+                        // Success, we got a garage available
+                        return true;
+                    }
+                    // Couldn't find an available garage, so return false
+                    return false;
+                  }
+                </code>
+              </pre>
             </div>
           </div>
           <div class="row">
@@ -186,11 +204,33 @@
               <div class="card-body">
                 <p>With this setup, the truck VUCI will start filling up with water. The pump on the truck "VALE" is working and the mode selected is empty, so it will empty the water to the other water tank (VUCI Water Tank)</p>
               </div>
-              <iframe class="col-md-12"
-              src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C0%29&t=one-light&wt=none&l=text%2Fx-csharp&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=false&pv=27px&ph=61px&ln=false&fl=1&fm=Fira+Code&fs=13px&lh=135%25&si=false&es=2x&wm=false&code=%252F%252F%2520-----------------------------------------------------------------------%250A%252F%252F%2520File%253A%2520WaterPump.cs%250A%250A%252F%252F%2520Doesn%27t%2520let%2520the%2520pump%2520work%252C%2520because%2520it%2520needs%25202%2520water%2520tanks%2520to%2520work.%250Aif%2520%28WaterTank1%2520%253D%253D%2520null%2520%257C%257C%2520WaterTank2%2520%253D%253D%2520null%29%2520%250A%2520%2520%2520%2520return%2520false%253B%250A%250A%252F%252F%2520Gets%2520the%2520amount%2520of%2520water%2520that%2520needs%2520to%2520be%2520transferred%2520%250Afloat%2520waterToEmpty%2520%253D%2520WaterTank1.WaterLoaded%253B%250A%250A%252F%252F%2520Make%2520sure%2520that%2520the%2520water%2520tank%2520target%2520has%2520enough%2520capacity%250Aif%2520%28waterToEmpty%2520%253E%2520WaterTank2.FreeCapacity%28%29%29%250A%257B%250A%2520%2520%2520%2520%252F%252F%2520Calculates%2520the%2520specific%2520amount%2520that%2520can%2520be%2520filled%2520to%2520the%2520water%2520tank%2520target%250A%2520%2520%2520%2520waterToEmpty%2520-%253D%2520waterToEmpty%2520-%2520WaterTank2.FreeCapacity%28%29%253B%250A%257D%250A%250AWaterTank2.AddWater%28waterToEmpty%29%253B%250AWaterTank1.RemoveWater%28waterToEmpty%29%253B%250A%250A%252F%252F%2520-----------------------------------------------------------------------%250A%252F%252F%2520File%253A%2520WaterTank.cs%250A%250Apublic%2520void%2520AddWater%28float%2520value%29%2520%253D%253E%2520_waterLoaded%2520%252B%253D%2520value%2520*%2520Time.deltaTime%253B"
-              style="height:550px;"
-              sandbox="allow-scripts allow-same-origin">
-              </iframe>
+              <pre class="col-md-12" style="margin-top: -3%;">
+                <code class="language-cs">
+                  // File: WaterPump.cs
+                  
+                  // Doesn't let the pump work, because it needs 2 water tanks to work.
+                  if (WaterTank1 == null || WaterTank2 == null) 
+                      return false;
+                  
+                  // Gets the amount of water that needs to be transferred 
+                  float waterToEmpty = WaterTank1.WaterLoaded;
+                  
+                  // Make sure that the water tank target has enough capacity
+                  if (waterToEmpty > WaterTank2.FreeCapacity())
+                  {
+                      // Calculates the specific amount that can be filled to the water tank target
+                      waterToEmpty -= waterToEmpty - WaterTank2.FreeCapacity();
+                  }
+                  
+                  WaterTank2.AddWater(waterToEmpty);
+                  WaterTank1.RemoveWater(waterToEmpty);
+                  
+                  // -----------------------------------------------------------------------
+                  // File: WaterTank.cs
+                  
+                  public void AddWater(float value) => _waterLoaded += value * Time.deltaTime;
+                </code>
+              </pre>
             </div>
           </div>
         </div>
@@ -220,7 +260,8 @@
   </div>
 </footer>
 
-
+    <script src="../js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="../dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/index.js"></script>
       

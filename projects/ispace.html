@@ -31,6 +31,8 @@
     <link href="../dist/css/features.css" rel="stylesheet">
     <link href="../css/icenstyles.css" rel="stylesheet">
     <link href="../dist/fontawesome/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../js/styles_languages/github.min.css">
+
   </head>
   <body>
     
@@ -84,7 +86,7 @@
     </header>
 
 <main>
-  <section class="py-5 masthead-faraday d-flex">
+  <section class="py-5 masthead-ispace d-flex">
     <div class="container text-center">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
@@ -102,44 +104,121 @@
         <div class="col-md-9 card-icen container">
           <div class="card-body">
             <p>A game I made to play with my friends, to those moments where everyone is bored.</p>
-            <p>The game right now has 1 mode: Deathmatch - Get the maximum kills possible to win.<br>
+            <p>The game right now has <b>1 game mode: Deathmatch - Get the maximum kills possible to win.</b><br>
               In the future I want to add a hide and seek mode.
             </p>
+          </div>
+          <div class="col-md-9 container">
+            <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 container">
-          <img class="card-img-top" data-src="" src="../images/faraday_2.png" data-holder-rendered="true">
+        <div class="col-md-9 card-icen container">
+          <div class="card-body">
+            <p><b>Multiplayer / Player Controller / Weapon</b></p>
+            <p>To move the player I'm using unity's new input system. 
+            </p>
+            <pre class="col-md-12">
+              <code class="language-cs">
+                private void Move()
+                {
+                    // Gets the input from the player with the new input system
+                    Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
+                    _move += transform.right * movementInput.x + transform.forward * movementInput.y;
+                    _move *= _moveSpeed * Time.fixedDeltaTime;
+                }
+                
+                private void ControlVelocity()
+                {
+                    _rigidbody.velocity += _move;
+                }
+              </code>
+            </pre>
+            <p style="margin-top: -3%;">The rotation part is done by the following code</p>
+            <pre class="col-md-12" style="margin-top: -3%;">
+              <code class="language-cs">
+                private void Rotate()
+                {
+                    Vector2 movementInput = _controls.Player.Look.ReadValue<Vector2>();
+                    float rollInput = _controls.Player.Roll.ReadValue<float>();
+        
+                    movementInput.x *= _mouseSensitivity;
+                    movementInput.y *= _mouseSensitivity;
+                    rollInput *= _rollSpeed * Time.deltaTime;
+        
+                    _rotationX -= movementInput.y;
+                    _rotationY += movementInput.x;
+                    _rotationZ += rollInput;
+                    
+                    // Roll
+                    transform.Rotate(0f, 0f, _rotationZ, Space.Self);
+         
+                    // Pitch
+                    transform.Rotate(_rotationX, 0f, 0f, Space.Self);
+         
+                    // Yaw
+                    transform.Rotate(0f, _rotationY, 0f, Space.Self);
+                    
+                    // Reset the rotations, so it stops rotating
+                    _rotationX = 0f;
+                    _rotationY = 0f;
+                    _rotationZ = 0f;
+                }
+              </code>
+            </pre>
+          </div>
         </div>
       </div>
-     
+      <div class="row">
+        <div class="col-md-9 card-icen container">
+          <div class="card-body">
+            <p><b>Scoreboard / Killfeed</b></p>
+          </div>
+          <div class="col-md-9 container">
+            <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 card-icen container">
+          <div class="card-body">
+            <p><b>Console Commands</b></p>
+          </div>
+          <div class="col-md-9 container">
+            <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
 </main>
 
-<footer class="text-muted py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4 offset-md-1 py-4">
-        <h4 class="text-dark">Contact</h4>
-        <ul class="list-unstyled">
-          <li><a href="https://twitter.com/IceNbrn" target="_blank" class="text text-decoration-none"><i class="fab fa-twitter-square fa-2x nav-text"></i>&nbsp;Twitter</a></li>
-          <li><a href="mailto:brunoacastanheira@gmail.com" class="text text-decoration-none"><i class="fas fa-envelope-square fa-2x nav-text"></i>&nbsp;Email</a></li>
-          <li><a href="https://www.linkedin.com/in/carlos-bruno-castanheira/" target="_blank" class="text text-decoration-none"><i class="fab fa-linkedin fa-2x nav-text"></i>&nbsp;Linkedin</a></li>
-        </ul>
-        <a href="#aboutMe">
-          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#aboutMe" aria-controls="aboutMe" aria-expanded="false" aria-label="Toggle navigation">
-            About me
-          </button>
-        </a>
+    <footer class="text-muted py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-dark">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://twitter.com/IceNbrn" target="_blank" class="text text-decoration-none"><i class="fab fa-twitter-square fa-2x nav-text"></i>&nbsp;Twitter</a></li>
+              <li><a href="mailto:brunoacastanheira@gmail.com" class="text text-decoration-none"><i class="fas fa-envelope-square fa-2x nav-text"></i>&nbsp;Email</a></li>
+              <li><a href="https://www.linkedin.com/in/carlos-bruno-castanheira/" target="_blank" class="text text-decoration-none"><i class="fab fa-linkedin fa-2x nav-text"></i>&nbsp;Linkedin</a></li>
+            </ul>
+            <a href="#aboutMe">
+              <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#aboutMe" aria-controls="aboutMe" aria-expanded="false" aria-label="Toggle navigation">
+                About me
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
+    
 
+    <script src="../js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="../dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/index.js"></script>
       
