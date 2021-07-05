@@ -33,8 +33,11 @@
     <link href="../dist/fontawesome/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../js/styles_languages/github.min.css">
 
+    <link rel="stylesheet" type="text/css" href="../css/prettify.css">
+    <script type="text/javascript" src="../js/prettify.js"></script>
+
   </head>
-  <body>
+  <body onload="PR.prettyPrint()">
     
     <header>
       <div class="collapse bg-blue-icen" id="aboutMe">
@@ -119,8 +122,9 @@
             <p><b>Multiplayer / Player Controller / Weapon</b></p>
             <p>To move the player I'm using unity's new input system. 
             </p>
-            <pre class="col-md-12">
-              <code class="language-cs">
+            <pre class="col-md-12 prettyprint">
+              // File: PlayerMovementController.cs
+
                 private void Move()
                 {
                     // Gets the input from the player with the new input system
@@ -133,12 +137,12 @@
                 {
                     _rigidbody.velocity += _move;
                 }
-              </code>
             </pre>
-            <p style="margin-top: -3%;">The rotation part is done by the following code</p>
-            <pre class="col-md-12" style="margin-top: -3%;">
-              <code class="language-cs">
-                private void Rotate()
+            <p>The rotation part is done by the following code</p>
+            <pre class="col-md-12 prettyprint">
+              // File: PlayerMovementController.cs
+
+              private void Rotate()
                 {
                     Vector2 movementInput = _controls.Player.Look.ReadValue<Vector2>();
                     float rollInput = _controls.Player.Roll.ReadValue<float>();
@@ -165,7 +169,6 @@
                     _rotationY = 0f;
                     _rotationZ = 0f;
                 }
-              </code>
             </pre>
           </div>
         </div>

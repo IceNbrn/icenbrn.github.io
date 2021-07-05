@@ -109,15 +109,10 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-code {
-    text-align: left !important;
-    background-color: #f3f3f3 !important;
-}
 
-pre code.hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 1em;
+pre.prettyprint {
+    padding: 2px;
+    border: 0px solid rgba(0, 0, 0, 0) !important;
     text-align: left !important;
     background-color: #f3f3f3 !important;
 }

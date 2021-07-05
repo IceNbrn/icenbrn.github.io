@@ -31,9 +31,11 @@
     <link href="../dist/css/features.css" rel="stylesheet">
     <link href="../css/icenstyles.css" rel="stylesheet">
     <link href="../dist/fontawesome/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../js/styles_languages/github.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/prettify.css">
+    <script type="text/javascript" src="../js/prettify.js"></script>
+
   </head>
-  <body>
+  <body onload="PR.prettyPrint()">
     
 <header>
   <div class="collapse bg-blue-icen" id="aboutMe">
@@ -152,27 +154,26 @@
                 </p>
                 <p>When the player buys a new vehicle, the function <b>AddCarToGarage()</b> is called. It tries to find an available garage.</p>
               </div>
-              <pre class="col-md-12" style="margin-top: -3%;">
-                <code class="language-cs">
-                  public bool AddCarToGarage(GameObject vehicleObject)
+
+              <pre class="col-md-12 prettyprint">
+                public bool AddCarToGarage(GameObject vehicleObject)
+                {
+                  VehicleInfo vehicle = vehicleObject.GetComponent<VehicleInfo>();
+                  // Gets an available garage. Checks if it's occupied and the vehicle size.
+                  Garage garage = _garages.Find(x => !x.IsOccupied && x.VehicleSize == vehicle.SizeType);
+                
+                  if (garage != null)
                   {
-                    VehicleInfo vehicle = vehicleObject.GetComponent<VehicleInfo>();
-                    // Gets an available garage. Checks if it's occupied and the vehicle size.
-                    Garage garage = _garages.Find(x => !x.IsOccupied && x.VehicleSize == vehicle.SizeType);
-                  
-                    if (garage != null)
-                    {
-                        GameObject newObject = Instantiate(vehicleObject, garage.GetPosition(), garage.GetRotation());
-                        garage.AddVehicle(newObject.GetComponent<VehicleInfo>());
-                        VehicleDriverSeats += 1;
-                        VehicleSeats += vehicle.Slots; 
-                        // Success, we got a garage available
-                        return true;
-                    }
-                    // Couldn't find an available garage, so return false
-                    return false;
+                      GameObject newObject = Instantiate(vehicleObject, garage.GetPosition(), garage.GetRotation());
+                      garage.AddVehicle(newObject.GetComponent<VehicleInfo>());
+                      VehicleDriverSeats += 1;
+                      VehicleSeats += vehicle.Slots; 
+                      // Success, we got a garage available
+                      return true;
                   }
-                </code>
+                  // Couldn't find an available garage, so return false
+                  return false;
+                }
               </pre>
             </div>
           </div>
@@ -204,8 +205,7 @@
               <div class="card-body">
                 <p>With this setup, the truck VUCI will start filling up with water. The pump on the truck "VALE" is working and the mode selected is empty, so it will empty the water to the other water tank (VUCI Water Tank)</p>
               </div>
-              <pre class="col-md-12" style="margin-top: -3%;">
-                <code class="language-cs">
+              <pre class="col-md-12 prettyprint">
                   // File: WaterPump.cs
                   
                   // Doesn't let the pump work, because it needs 2 water tanks to work.
@@ -229,7 +229,6 @@
                   // File: WaterTank.cs
                   
                   public void AddWater(float value) => _waterLoaded += value * Time.deltaTime;
-                </code>
               </pre>
             </div>
           </div>
@@ -260,8 +259,7 @@
   </div>
 </footer>
 
-    <script src="../js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    
     <script src="../dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/index.js"></script>
       
