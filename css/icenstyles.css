@@ -114,6 +114,14 @@ code {
     background-color: #f3f3f3 !important;
 }
 
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    text-align: left !important;
+    background-color: #f3f3f3 !important;
+}
+
 .navbar-toggler {
     padding: .25rem .75rem;
     font-size: 1.25rem;
