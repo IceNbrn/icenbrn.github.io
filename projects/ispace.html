@@ -31,10 +31,10 @@
     <link href="../dist/css/features.css" rel="stylesheet">
     <link href="../css/icenstyles.css" rel="stylesheet">
     <link href="../dist/fontawesome/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../js/styles_languages/github.min.css">
 
     <link rel="stylesheet" type="text/css" href="../css/prettify.css">
     <script type="text/javascript" src="../js/prettify.js"></script>
+
 
   </head>
   <body onload="PR.prettyPrint()">
@@ -88,173 +88,123 @@
       </div>
     </header>
 
-<main>
-  <section class="py-5 masthead-ispace d-flex">
-    <div class="container text-center">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light text-white">ISPACE</h1>
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <div class="album py-5 bg-icen">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-9 card-icen container">
-          <div class="card-body">
-            <p>A game I made to play with my friends, to those moments where everyone is bored.</p>
-            <p>The game right now has <b>1 game mode: Deathmatch - Get the maximum kills possible to win.</b><br>
-              In the future I want to add a hide and seek mode.
-            </p>
-          </div>
-          <div class="col-md-9 container">
-            <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 card-icen container">
-          <div class="card-body">
-            <p><b>Player Controller</b></p>
-            <div class="col-md-9 container">
-              <img class="card-img-top" data-src="" src="../images/ispace_movement.gif" data-holder-rendered="true">
+    <main>
+      <section class="py-5 masthead-ispace d-flex">
+        <div class="container text-center">
+          <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="fw-light text-white">ISPACE</h1>
+              </p>
             </div>
-            <p>To move/rotate the player I'm using unity's new input system. 
-            </p>
-            <pre class="col-md-12 prettyprint">
-              // File: PlayerMovementController.cs
-
-                private void Move()
-                {
-                    // Gets the input from the player with the new input system
-                    Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
-                    _move += transform.right * movementInput.x + transform.forward * movementInput.y;
-                    _move *= _moveSpeed * Time.fixedDeltaTime;
-                }
-                
-                private void ControlHeight()
-                {
-                    float movementInput = _controls.Player.Height.ReadValue<float>();
-                    if (Mathf.Abs(movementInput) > 0.0001f)
-                    {
-                        _move += transform.up * movementInput;
-                        _move *= _heightSpeed * Time.fixedDeltaTime;
-                    }
-                }
-                
-                private void ControlVelocity()
-                {
-                    _rigidbody.velocity += _move;
-                }
-            </pre>
-            <p>The rotation part is done by the following code</p>
-            <pre class="col-md-12 prettyprint">
-              // File: PlayerMovementController.cs
-
-              private void Rotate()
-                {
-                    Vector2 movementInput = _controls.Player.Look.ReadValue<Vector2>();
-                    float rollInput = _controls.Player.Roll.ReadValue<float>();
-        
-                    movementInput.x *= _mouseSensitivity;
-                    movementInput.y *= _mouseSensitivity;
-                    rollInput *= _rollSpeed * Time.deltaTime;
-        
-                    _rotationX -= movementInput.y;
-                    _rotationY += movementInput.x;
-                    _rotationZ += rollInput;
-                    
-                    // Roll
-                    transform.Rotate(0f, 0f, _rotationZ, Space.Self);
-         
-                    // Pitch
-                    transform.Rotate(_rotationX, 0f, 0f, Space.Self);
-         
-                    // Yaw
-                    transform.Rotate(0f, _rotationY, 0f, Space.Self);
-                    
-                    // Reset the rotations, so it stops rotating
-                    _rotationX = 0f;
-                    _rotationY = 0f;
-                    _rotationZ = 0f;
-                }
-            </pre>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 card-icen container">
-          <div class="card-body">
-            <p><b>Scoreboard / Killfeed</b></p>
-            <p>To make the scoreboard, first I created a script (ScrollViewContent.cs) that instantiates objects inside of a scroll view.
-              After that's done, the ScoreBoardManager uses the first script to instantiate, and manages the score on the table.</p>
-            <p>The good thing about having the ScrollViewContent script, it's dynamic, I just tell it what prefab to create.</p>
-            <div class="col-md-9 container">
-              <img class="card-img-top" data-src="" src="../images/ispace_scoreboard_killfeed.jpg" data-holder-rendered="true">
-            </div>
-            <p>To instantiate any object inside of a scroll view</p>
-            <pre class="col-md-12 prettyprint">
-              // File: ScrollViewContent.cs
-  
-              public GameObject AddContent(GameObject prefab)
-              {
-                  GameObject instantiatedObject = Instantiate(prefab, spawnPosition.transform.parent, false);
-                  RectTransform rectTransform = instantiatedObject.GetComponent<RectTransform>();
-                  RectTransform spawnRectTransform = spawnPosition.GetComponent<RectTransform>();
-                  Rect rect = spawnRectTransform.rect;
-                  Vector3 position = rectTransform.localPosition;
-                  
-                  rectTransform.sizeDelta = new Vector2(0.0f, rect.height);
-                  position.y -= spawnRectTransform.sizeDelta.y * listPrefabs.Count;
-                  
-                  rectTransform.localPosition = position;
-                  listPrefabs.Add(instantiatedObject);
-                  
-                  return instantiatedObject;
-              }
-            </pre>
-            <p>The ScoreBoardManager has a dictionary (key = playerNetId, value = Score) so it helps to keep track of each player's score, or even change the stats.</p>
-            <pre class="col-md-12 prettyprint">
-              // File: ScoreBoardManager.cs
-  
-              public void AddRow(uint playerNetId, ScoreRowData rowData)
-              {
-                  GameObject instantiatedObject = scrollViewContent.AddContent(rowPrefab);
-                  if (instantiatedObject != null)
-                  {
-                      ScoreRow rowInstantiated = instantiatedObject.GetComponent<ScoreRow>();
-                      rowInstantiated.SetData(rowData);
+
+      </section>
       
-                      if (!_scoreRows.ContainsKey(playerNetId))
-                          _scoreRows.Add(playerNetId, rowInstantiated);
-                      else
-                          _scoreRows[playerNetId] = rowInstantiated;
-                  }
-              }
-            </pre>
+      <div class="album py-5 bg-icen">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p>A game I made to play with my friends.</p>
+                <p>The game right now has <b>1 game mode: Deathmatch - Get the maximum kills possible to win.</b><br>
+                  In the future I want to add a hide and seek mode and a gamemode inspired in CS:GO.
+                </p>
+              </div>
+              <div class="col-md-9 container">
+                <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
+              </div>
+            </div>
           </div>
-          
-          
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 card-icen container">
-          <div class="card-body">
-            <p><b>Console Commands</b></p>
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p><b>Player Controller</b></p>
+                <div class="col-md-9 container">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" style="min-height: 400px; width: 100%;" src="https://www.youtube.com/embed/VrFHHxv7L0o" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <p>To move/rotate the player I'm using unity's new input system.</p>
+                
+                
+              </div>
+            </div>
           </div>
-          <div class="col-md-9 container">
-            <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-</main>
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p><b>Scoreboard / Killfeed</b></p>
+                <p>To make the scoreboard, first I created a script (ScrollViewContent.cs) that instantiates objects inside of a scroll view.
+                  After that's done, the ScoreBoardManager uses the first script to instantiate, and manages the score on the table.</p>
+                <div class="col-md-9 container">
+                  <img class="card-img-top" data-src="" src="../images/ispace_scoreboard_killfeed.jpg" data-holder-rendered="true">
+                </div>
+                <p>To instantiate any object inside of a scroll view</p>
+                <pre class="col-md-12 prettyprint">
+                  // File: ScrollViewContent.cs
+      
+                  public GameObject AddContent(GameObject prefab)
+                  {
+                      GameObject instantiatedObject = Instantiate(prefab, spawnPosition.transform.parent, false);
+                      RectTransform rectTransform = instantiatedObject.GetComponent<RectTransform>();
+                      RectTransform spawnRectTransform = spawnPosition.GetComponent<RectTransform>();
+                      Rect rect = spawnRectTransform.rect;
+                      Vector3 position = rectTransform.localPosition;
+                      
+                      rectTransform.sizeDelta = new Vector2(0.0f, rect.height);
+                      position.y -= spawnRectTransform.sizeDelta.y * listPrefabs.Count;
+                      
+                      rectTransform.localPosition = position;
+                      listPrefabs.Add(instantiatedObject);
+                      
+                      return instantiatedObject;
+                  }
+                </pre>
+                <p>The ScoreBoardManager has a dictionary (key = playerNetId, value = Score) so it helps to keep track of each player's score, or even change the stats.</p>
+                <pre class="col-md-12 prettyprint">
+                  // File: ScoreBoardManager.cs
+      
+                  public void AddRow(uint playerNetId, ScoreRowData rowData)
+                  {
+                      GameObject instantiatedObject = scrollViewContent.AddContent(rowPrefab);
+                      if (instantiatedObject != null)
+                      {
+                          ScoreRow rowInstantiated = instantiatedObject.GetComponent<ScoreRow>();
+                          rowInstantiated.SetData(rowData);
+          
+                          if (!_scoreRows.ContainsKey(playerNetId))
+                              _scoreRows.Add(playerNetId, rowInstantiated);
+                          else
+                              _scoreRows[playerNetId] = rowInstantiated;
+                      }
+                  }
+                </pre>
+              </div>
+              
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p><b>Console Commands</b></p>
+                <p>The player has access to the console, where it can execute specific commands.</p>
+              </div>
+              <div class="col-md-9 col-sm-5 container">
+                <img class="card-img-top" data-src="" src="../images/console.jpg" data-holder-rendered="true">
+              </div>
+              <p>Commands example:</p>
+              <div class="col-md-6 col-sm-5 container">
+                <img class="card-img-top" data-src="" src="../images/console_crosshair.png" data-holder-rendered="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
 
     <footer class="text-muted py-5">
       <div class="container">
@@ -279,9 +229,9 @@
     
 
     <script src="../js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
     <script src="../dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/index.js"></script>
+    </script>
       
   </body>
 </html>

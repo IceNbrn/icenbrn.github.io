@@ -3,10 +3,10 @@
     src: url(../fonts/Inconsolata-Regular.ttf);
 }
 p {
-    color: #444648;
+    color: #222325;
 }
 li {
-    color: #444648;
+    color: #222325;
 }
 ::selection {
     color: #0d6efd;
