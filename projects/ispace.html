@@ -46,7 +46,7 @@
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">About</h4>
               <p class="text-white">Hello, I'm Bruno Castanheira, a Game Developer, and also a gamer from Portugal. I started playing video games when I was a child, since then it's been my hobby. So when I started programming and got into making games, combining the two is something that I enjoy.</p>
-              <p class="text-white">Also I have a degree in Digital Games Development Engineering</p>
+              <p class="text-white">Also I have a bachelor degree in Digital Games Development Engineering</p>
               <p class="text-white">
                 I have experience with <b>C#, C++, Java, Unity, Unigine Engine</b>. C# it's the one I used it most, for Unity, and Mono Game.  
               </p>
@@ -119,8 +119,11 @@
       <div class="row">
         <div class="col-md-9 card-icen container">
           <div class="card-body">
-            <p><b>Multiplayer / Player Controller / Weapon</b></p>
-            <p>To move the player I'm using unity's new input system. 
+            <p><b>Player Controller</b></p>
+            <div class="col-md-9 container">
+              <img class="card-img-top" data-src="" src="../images/ispace_movement.gif" data-holder-rendered="true">
+            </div>
+            <p>To move/rotate the player I'm using unity's new input system. 
             </p>
             <pre class="col-md-12 prettyprint">
               // File: PlayerMovementController.cs
@@ -187,10 +190,55 @@
         <div class="col-md-9 card-icen container">
           <div class="card-body">
             <p><b>Scoreboard / Killfeed</b></p>
+            <p>To make the scoreboard, first I created a script (ScrollViewContent.cs) that instantiates objects inside of a scroll view.
+              After that's done, the ScoreBoardManager uses the first script to instantiate, and manages the score on the table.</p>
+            <p>The good thing about having the ScrollViewContent script, it's dynamic, I just tell it what prefab to create.</p>
+            <div class="col-md-9 container">
+              <img class="card-img-top" data-src="" src="../images/ispace_scoreboard_killfeed.jpg" data-holder-rendered="true">
+            </div>
+            <p>To instantiate any object inside of a scroll view</p>
+            <pre class="col-md-12 prettyprint">
+              // File: ScrollViewContent.cs
+  
+              public GameObject AddContent(GameObject prefab)
+              {
+                  GameObject instantiatedObject = Instantiate(prefab, spawnPosition.transform.parent, false);
+                  RectTransform rectTransform = instantiatedObject.GetComponent<RectTransform>();
+                  RectTransform spawnRectTransform = spawnPosition.GetComponent<RectTransform>();
+                  Rect rect = spawnRectTransform.rect;
+                  Vector3 position = rectTransform.localPosition;
+                  
+                  rectTransform.sizeDelta = new Vector2(0.0f, rect.height);
+                  position.y -= spawnRectTransform.sizeDelta.y * listPrefabs.Count;
+                  
+                  rectTransform.localPosition = position;
+                  listPrefabs.Add(instantiatedObject);
+                  
+                  return instantiatedObject;
+              }
+            </pre>
+            <p>The ScoreBoardManager has a dictionary (key = playerNetId, value = Score) so it helps to keep track of each player's score, or even change the stats.</p>
+            <pre class="col-md-12 prettyprint">
+              // File: ScoreBoardManager.cs
+  
+              public void AddRow(uint playerNetId, ScoreRowData rowData)
+              {
+                  GameObject instantiatedObject = scrollViewContent.AddContent(rowPrefab);
+                  if (instantiatedObject != null)
+                  {
+                      ScoreRow rowInstantiated = instantiatedObject.GetComponent<ScoreRow>();
+                      rowInstantiated.SetData(rowData);
+      
+                      if (!_scoreRows.ContainsKey(playerNetId))
+                          _scoreRows.Add(playerNetId, rowInstantiated);
+                      else
+                          _scoreRows[playerNetId] = rowInstantiated;
+                  }
+              }
+            </pre>
           </div>
-          <div class="col-md-9 container">
-            <img class="card-img-top" data-src="" src="../images/ispace_station.jpg" data-holder-rendered="true">
-          </div>
+          
+          
         </div>
       </div>
       <div class="row">
