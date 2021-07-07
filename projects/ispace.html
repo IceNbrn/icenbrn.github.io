@@ -126,9 +126,21 @@
                   </div>
                 </div>
                 <p>To move/rotate the player I'm using unity's new input system.</p>
-                
-                
               </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p><b>Weapon</b></p>
+                <p>At the moment the game has 1 automatic rifle. In the future I want to add more weapons (examples: railgun, pistols).</p>
+              </div>
+              <div class="col-md-9 container">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" style="min-height: 400px; width: 100%;" src="https://www.youtube.com/embed/UJqagRt-5Nk" allowfullscreen></iframe>
+                </div>
+              </div>              
             </div>
           </div>
 
@@ -160,25 +172,6 @@
                       listPrefabs.Add(instantiatedObject);
                       
                       return instantiatedObject;
-                  }
-                </pre>
-                <p>The ScoreBoardManager has a dictionary (key = playerNetId, value = Score) so it helps to keep track of each player's score, or even change the stats.</p>
-                <pre class="col-md-12 prettyprint">
-                  // File: ScoreBoardManager.cs
-      
-                  public void AddRow(uint playerNetId, ScoreRowData rowData)
-                  {
-                      GameObject instantiatedObject = scrollViewContent.AddContent(rowPrefab);
-                      if (instantiatedObject != null)
-                      {
-                          ScoreRow rowInstantiated = instantiatedObject.GetComponent<ScoreRow>();
-                          rowInstantiated.SetData(rowData);
-          
-                          if (!_scoreRows.ContainsKey(playerNetId))
-                              _scoreRows.Add(playerNetId, rowInstantiated);
-                          else
-                              _scoreRows[playerNetId] = rowInstantiated;
-                      }
                   }
                 </pre>
               </div>
