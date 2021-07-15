@@ -162,6 +162,14 @@ pre.prettyprint {
     background-size: cover;
 }
 
+.masthead-exploration {
+    background: url(../images/exploration_notext.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
 .masthead-faraday {
     background: linear-gradient(to bottom, rgb(0 0 0 / 49%) 0%, rgb(255 108 0 / 19%) 100%), url(../images/faraday_2.png);
     background-position: top;
