@@ -91,9 +91,7 @@
     <div class="container text-center">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light text-white">HOTSHOTS</h1>
-          <p class="lead text-white">Hotshots is a game where you play as the commander of a firehouse. You can buy new vehicles as well as recruit firefighters to aid in your mission.</p>
-          
+          <h1 class="fw-light text-white">HOTSHOTS</h1>         
         </div>
       </div>
     </div>
@@ -116,6 +114,7 @@
           <div class="row">
             <div class="col-md-9 card-icen container">
               <div class="card-body">
+                <p>Hotshots is a game where the player is the commander of a firehouse. The player can buy new vehicles or recruit firefighters to aid in the mission. The city is Open-World, to give the player more freedom.</p>
                 <p>This game was made by me and a group of friends. <br>
                 To make this game we were inspired by a friend that is a firefighter, so we made HotShots. <br>
                 The player is the commander of a firehouse. The main features are:</p> 
@@ -154,7 +153,7 @@
                 </p>
                 <p>When the player buys a new vehicle, the function <b>AddCarToGarage()</b> is called. It tries to find an available garage.</p>
               </div>
-
+              <p><i>[Code] Add a car to a garage:</i></p>
               <pre class="col-md-12 prettyprint">
                 public bool AddCarToGarage(GameObject vehicleObject)
                 {
@@ -205,6 +204,7 @@
               <div class="card-body">
                 <p>With this setup, the truck VUCI will start filling up with water. The pump on the truck "VALE" is working and the mode selected is empty, so it will empty the water to the other water tank (VUCI Water Tank)</p>
               </div>
+              <p><i>[Code] Fill / Empty water tank:</i></p>
               <pre class="col-md-12 prettyprint">
                   // File: WaterPump.cs
                   
