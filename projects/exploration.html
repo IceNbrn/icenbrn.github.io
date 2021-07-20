@@ -105,15 +105,15 @@
           <div class="row">
             <div class="col-md-9 card-icen container">
               <div class="card-body">
-                <p>This is a tech demo, where I explore car and spaceship mechanics.</p>
+                <p>This is a tech demo, where I explore game mechanics.</p>
                 <p class="card-text">Game Systems: </p>
                 <div class="col-md-9 container text-start">
                   <ul>
                     <li>Spaceship Controller</li>
                     <li>Spaceship Landing Assist</li>
-                    <li>Air Traffic Controller</li>
                     <li>Car Controller</li>
                     <li>Asteroids Spawner</li>
+                    <li>Air Traffic Controller</li>
                   </ul>
                 </div>
               </div>
@@ -187,7 +187,74 @@
                 <div class="embed-responsive embed-responsive-16by9">
                   <iframe class="embed-responsive-item" style="min-height: 400px; width: 100%;" src="https://www.youtube.com/embed/oUmG-OZlvMI" allowfullscreen></iframe>
                 </div>
-              </div>              
+              </div>
+              <p><i>[Code] Score calculation:</i></p>
+              <pre class="col-md-12 prettyprint">
+                // File: ShipParkingAssist.cpp
+    
+                float ShipParkingAssist::GetLandingScore() const
+                {
+                    float finalScore = 0.0f;
+
+                    // Time spent in the game
+                    const float time = Game::getTime();
+
+                    const auto landingTransform = m_landingZone->getNode()->getTransform();
+                    const auto shipTransform    = m_shipBody->getTransform();
+
+                    // Calculate the alignment values
+                    const float dotPitch = Math::dot(shipTransform.getAxisX(), landingTransform.getAxisX());
+                    const float dotRoll = Math::dot(shipTransform.getAxisY(), landingTransform.getAxisY());
+                    const float dotYaw = Math::dot(shipTransform.getAxisZ(), landingTransform.getAxisZ());
+
+                    const float rotationScore = dotYaw * dotPitch * dotRoll;
+                    finalScore = rotationScore + distance + time;
+                        
+                    // Invert the result so the higher number is the best score
+                    finalScore = (1 / finalScore) * m_scoreMultiplier;
+                    
+                    return finalScore;
+                }
+              </pre>              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p><b>Asteroids Spawner</b></p>
+                <div class="col-md-9 container">
+                  <img class="card-img-top" data-src="" src="../images/exploration_asteroids.jpg" data-holder-rendered="true">
+                </div>
+                <br>
+                <p>A small system to spawn asteroids in randoms positions with collision prevention</p>
+                <p><i>[Code] Parameters to customize the spawn:</i></p>
+                <pre class="col-md-12 prettyprint">
+                  // File: AsteroidsSpawner.h
+      
+                  PROP_PARAM( Float, m_radiusArea          , 250.0f)
+                  PROP_PARAM(   Int, m_maxRandomTries      , 10)
+                  PROP_PARAM(   Int, m_asteroidsToGenerate , 80)
+                  PROP_PARAM( Float, m_minScale            , 1.0f)
+                  PROP_PARAM( Float, m_maxScale            , 8.0f)
+                  PROP_PARAM(String, m_asteroidNode        , "nodes/defaultAsteroid.node")
+                </pre>  
+                <p>To create spawn the asteroids, first I generate random positions within the max radius, then generate random scales within the min and max scale values.</p>
+                <p>When I have the position and the scale they are stored inside a list</p>
+                <p>In this case, it's done 80 times (number of asteroids to generate), start spawning asteroids in the world. Now they are in the world so it means time to clear the list data (positions and scales).</p>
+              </div>   
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 card-icen container">
+              <div class="card-body">
+                <p><b>Air Traffic Controller</b></p>
+                <div class="col-md-9 container">
+                  <img class="card-img-top" data-src="" src="../images/exploration_atc.jpg" data-holder-rendered="true">
+                </div>
+                <br>
+                <p>The Air Traffic Controller has a list of landing zones. Every time a spaceship wants to land, a landing zone request is detected.</p>
+                <p>After that the ATC finds an available landing zone with the correct ship size and assigns that landing zone to the spaceship.</p>
+              </div>   
             </div>
           </div>
 
