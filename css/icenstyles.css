@@ -189,6 +189,11 @@ pre.prettyprint {
     display: flex !important;
 }
 
+.card-img, .card-img-top {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
 /*
 @media (prefers-color-scheme: dark) {
     .card-icen {
