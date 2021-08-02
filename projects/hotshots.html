@@ -168,14 +168,14 @@
               <pre class="col-md-12 prettyprint">
                 public bool AddCarToGarage(GameObject vehicleObject)
                 {
-                  VehicleInfo vehicle = vehicleObject.GetComponent<VehicleInfo>();
+                  VehicleInfo vehicle = vehicleObject.GetComponent<​VehicleInfo>();
                   // Gets an available garage. Checks if it's occupied and the vehicle size.
                   Garage garage = _garages.Find(x => !x.IsOccupied && x.VehicleSize == vehicle.SizeType);
                 
                   if (garage != null)
                   {
                       GameObject newObject = Instantiate(vehicleObject, garage.GetPosition(), garage.GetRotation());
-                      garage.AddVehicle(newObject.GetComponent<VehicleInfo>());
+                      garage.AddVehicle(newObject.GetComponent<​VehicleInfo>());
                       VehicleDriverSeats += 1;
                       VehicleSeats += vehicle.Slots; 
                       // Success, we got a garage available
@@ -213,10 +213,6 @@
               <div class="col-md-9 container">
                 <img class="card-img-top" data-src="" src="../images/water_tank_visual.jpg" data-holder-rendered="true">
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9 card-icen container">
               <div class="card-body">
                 <p>With this setup, the truck VUCI will start filling up with water. The pump on the truck "VALE" is working and the mode selected is empty, so it will empty the water to the other water tank (VUCI Water Tank)</p>
               </div>
@@ -248,6 +244,7 @@
               </pre>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

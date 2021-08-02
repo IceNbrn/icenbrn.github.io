@@ -214,8 +214,8 @@
                   public GameObject AddContent(GameObject prefab)
                   {
                       GameObject instantiatedObject = Instantiate(prefab, spawnPosition.transform.parent, false);
-                      RectTransform rectTransform = instantiatedObject.GetComponent<RectTransform>();
-                      RectTransform spawnRectTransform = spawnPosition.GetComponent<RectTransform>();
+                      RectTransform rectTransform = instantiatedObject.GetComponent<​RectTransform>();
+                      RectTransform spawnRectTransform = spawnPosition.GetComponent<​RectTransform>();
                       Rect rect = spawnRectTransform.rect;
                       Vector3 position = rectTransform.localPosition;
                       

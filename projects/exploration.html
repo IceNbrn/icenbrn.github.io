@@ -220,7 +220,7 @@
                     const float dotRoll = Math::dot(shipTransform.getAxisY(), landingTransform.getAxisY());
                     const float dotYaw = Math::dot(shipTransform.getAxisZ(), landingTransform.getAxisZ());
 
-                    const float rotationScore = dotYaw * dotPitch * dotRoll;
+                    const float rotationScore = dotYaw + dotPitch + dotRoll;
                     finalScore = rotationScore + distance + time;
                         
                     // Invert the result so the higher number is the best score
