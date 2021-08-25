@@ -216,13 +216,13 @@
                       GameObject instantiatedObject = Instantiate(prefab, spawnPosition.transform.parent, false);
                       RectTransform rectTransform = instantiatedObject.GetComponent<​RectTransform>();
                       RectTransform spawnRectTransform = spawnPosition.GetComponent<​RectTransform>();
-                      Rect rect = spawnRectTransform.rect;
-                      Vector3 position = rectTransform.localPosition;
+                      Rect spawnRect = spawnRectTransform.rect;
+                      Vector3 positionRectTransfrom = rectTransform.localPosition;
                       
-                      rectTransform.sizeDelta = new Vector2(0.0f, rect.height);
-                      position.y -= spawnRectTransform.sizeDelta.y * listPrefabs.Count;
+                      rectTransform.sizeDelta = new Vector2(0.0f, spawnRect.height);
+                      positionRectTransfrom.y -= spawnRectTransform.sizeDelta.y * listPrefabs.Count;
                       
-                      rectTransform.localPosition = position;
+                      rectTransform.localPosition = positionRectTransfrom;
                       listPrefabs.Add(instantiatedObject);
                       
                       return instantiatedObject;

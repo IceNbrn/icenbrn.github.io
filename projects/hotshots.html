@@ -228,10 +228,10 @@
                   float waterToEmpty = WaterTank1.WaterLoaded;
                   
                   // Make sure that the water tank target has enough capacity
-                  if (waterToEmpty > WaterTank2.FreeCapacity())
+                  if (waterToEmpty >= WaterTank2.FreeCapacity())
                   {
-                      // Calculates the specific amount that can be filled to the water tank target
-                      waterToEmpty -= waterToEmpty - WaterTank2.FreeCapacity();
+                      // Specific amount that can be filled to the water tank target
+                      waterToEmpty = WaterTank2.FreeCapacity();
                   }
                   
                   WaterTank2.AddWater(waterToEmpty);
