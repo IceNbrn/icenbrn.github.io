@@ -36,6 +36,13 @@ li {
     word-wrap: break-word;
 }
 
+.card-body {
+    flex: 1 1 auto;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+    padding-top: 1em;
+}
+
 .btn-group-lg>.btn, .btn-lg {
     padding: .5rem 1rem;
     font-size: 1.25rem;
