@@ -33,9 +33,6 @@
     <link href="dist/css/features.css" rel="stylesheet">
     <link href="css/icenstyles.css" rel="stylesheet">
     <link href="dist/fontawesome/css/all.min.css" rel="stylesheet">
-    <script>
-      console.log("Test javascript");
-    </script>
   </head>
   <body>
     
@@ -473,7 +470,7 @@
 <footer class="text-muted py-5">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4 offset-md-1 py-4">
+      <div class="col-sm-6 offset-md-1 py-4">
         <h4 class="text-dark">Contact</h4>
         <ul class="list-unstyled">
           <li><a href="https://twitter.com/IceNbrn" target="_blank" class="text text-decoration-none"><i class="fab fa-twitter-square fa-2x nav-text"></i>&nbsp;Twitter</a></li>
@@ -486,7 +483,11 @@
             About me
           </button>
         </a>
-        <p>© 2021-2023 Bruno Castanheira All Rights Reserved</p>
+        
+        <p>© Copyright
+        <script>
+          document.write(" 2021 - "+ new Date().getFullYear());
+        </script> Bruno Castanheira. All rights reserved.</p>
       </div>
       
     </div>
