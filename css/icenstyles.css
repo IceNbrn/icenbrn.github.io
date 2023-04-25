@@ -95,6 +95,10 @@ li {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.text-blue {
+    color: #0d6efd;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #0d6efd;
@@ -151,7 +155,7 @@ pre.prettyprint {
     padding: 2px;
     border: 0px solid rgba(0, 0, 0, 0) !important;
     text-align: left !important;
-    background-color: #f3f3f3 !important;
+    background-color: #222222 !important;
 }
 
 .navbar-toggler {
@@ -183,9 +187,43 @@ pre.prettyprint {
     vertical-align: middle;
 }
 
+span.disclaimer {
+    font-size: 0.8em;
+    color: #bb6217;
+}
+
+span.orange {
+    color: orange;
+}
+
+span.green {
+    color: green;
+}
+
+span.red {
+    color: red;
+}
+
+span.yellow {
+    color: yellow;
+}
+
+div.gravgun-hud{
+    background-color: #212529;
+    padding-top: 1em;
+}
+
 .masthead {
     background: linear-gradient(to bottom, rgb(0 0 0 / 49%) 0%, rgb(255 108 0 / 19%) 100%), url(../images/wallpaper_hotshots_web.jpg);
     background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.masthead-icebox {
+    background: linear-gradient(to bottom, rgb(0 0 0 / 49%) 0%, rgb(76 118 162 / 35%) 100%), url(../images/icebox_1.jpg);
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -244,6 +282,30 @@ pre.prettyprint {
     background-color: #3c3c3c;
     border-color: #0d6efd;
 }
+
+.hovereffect {
+    width:100%;
+    height:100%;
+    float:left;
+    overflow:hidden;
+    position:relative;
+    text-align:center;
+    cursor:default;
+}
+
+.hovereffect img {
+    display:block;
+    position:relative;
+    -webkit-transition:all .4s linear;
+    transition:all .4s linear;
+}
+
+.hovereffect:hover img {
+    -ms-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+}
+
 
 /*
 @media (prefers-color-scheme: dark) {
