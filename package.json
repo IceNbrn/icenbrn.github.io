@@ -6,11 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "oxlint",
+    "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
