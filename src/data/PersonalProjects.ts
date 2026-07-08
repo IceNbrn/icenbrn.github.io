@@ -6,6 +6,20 @@ import iceboxBannerGif from '../assets/images/icebox_game.gif';
 import hotshotsBanner from '../assets/images/wallpaper_hotshots_web.jpg';
 import hotshotsBannerGif from '../assets/images/hotshots_truck.gif';
 
+import ispaceBanner from '../assets/images/ispace_logo.jpg';
+import ispaceBannerGif from '../assets/images/ispace_roundend.gif';
+
+import explorationBanner from '../assets/images/exploration1.jpg';
+import explorationBannerGif from '../assets/images/exploration.gif';
+
+import knowTheWayBanner from '../assets/images/knowtheway.jpg';
+import knowTheWayBannerGif from '../assets/images/ktw_pickup.gif';
+
+import modsBanner from '../assets/images/mods.jpg';
+import othersBanner from '../assets/images/others.jpg';
+
+
+
 export const personalProjects: ProjectDetails[] = [
 	{
 		name: "Icebox",
@@ -51,8 +65,8 @@ export const personalProjects: ProjectDetails[] = [
 			"name": "Itch.io",
 			"url": "https://icen.itch.io/hotshots",
 		},
-		startDate: new Date("2022-07-01"),
-		endDate: new Date("2023-04-01"),
+		startDate: new Date("2020-10-01"),
+		endDate: new Date("2021-01-01"),
 		features: [
 			"Vehicle Controller", "Player Controller", "Shop", "Water System", "Firehouse Manager", "Interactions", "Day Night Cycle"
 		],
@@ -60,6 +74,109 @@ export const personalProjects: ProjectDetails[] = [
 		bannerImages : [
 			hotshotsBanner,
 			hotshotsBannerGif
+		]
+	},
+	{
+		name: "ISpace",
+		duration: 5,
+		description: "ISpace is a multiplayer first person sandbox game. It has a Deathmatch mode and I plan to make other game modes.",
+		teamType: "Solo",
+		technologies: [
+			{"Unity": "https://unity.com/"},
+			{"Mirror Networking": "https://mirror-networking.com/"},
+			{"C#": ""},
+			{"Git": ""},
+		],
+		website: {
+			"name": "Itch.io",
+			"url": "https://icen.itch.io/ispace",
+		},
+		startDate: new Date("2021-02-01"),
+		endDate: new Date("2021-07-01"),
+		features: [
+			"Multiplayer", "Player Controller", "Weapon System", "Crosshair Generator", "Kill Feed", "Scoreboard"
+		],
+		sourceCode: "https://github.com/IceNbrn/ISpace",
+		bannerImages : [
+			ispaceBanner,
+			ispaceBannerGif
+		]
+	},
+	{
+		name: "Exploration",
+		duration: 6,
+		description: "This is a tech demo. Developed as a testing ground for experimental mechanics and systems.",
+		teamType: "Solo",
+		technologies: [
+			{"Unigine": "https://unigine.com/"},
+			{"C++": ""},
+			{"Git": ""},
+		],
+		website: {
+			"name": "Itch.io",
+			"url": "https://icen.itch.io/exploration",
+		},
+		startDate: new Date("2021-04-01"),
+		endDate: new Date("2021-11-01"),
+		features: [
+			"Spaceship Controller", "Spaceship Landing Assist", "Mini 'Air Traffic Controller'", "Car Controller", "Asteroids Spawner"
+		],
+		sourceCode: "https://bitbucket.org/IceNdev/explorationgame/src/master/",
+		bannerImages : [
+			explorationBanner,
+			explorationBannerGif
+		]
+	},
+	{
+		name: "Know The Way",
+		duration: 3,
+		description: "A co-op game, where 2 players need to find the exit.\n" +
+			"\n" +
+			"Throughout the game, players need to complete the puzzles to unlock the exit.",
+		teamType: "Team",
+		technologies: [
+			{"Unity": "https://unity.com/"},
+			{"Photon PUN": "https://www.photonengine.com/pun"},
+			{"C#": ""},
+			{"Git": ""},
+		],
+		website: {
+			"name": "Itch.io",
+			"url": "https://icen.itch.io/knowtheway",
+		},
+		startDate: new Date("2021-04-01"),
+		endDate: new Date("2021-11-01"),
+		features: [
+			"Multiplayer", "Player Controller", "Interactions", "Puzzles"
+		],
+		sourceCode: "https://gitlab.com/IceNdev/knowthewayphoton",
+		bannerImages : [
+			knowTheWayBanner,
+			knowTheWayBannerGif
+		]
+	},
+	{
+		name: "Others",
+		duration: 0,
+		description: "Mods or others side projects.",
+		technologies: [
+			{"OpenGL": "https://www.opengl.org/"},
+			{"ImGui": "https://github.com/ocornut/imgui"},
+			{"Blender": "https://www.blender.org/"},
+			{"C#": ""},
+			{"C++": ""},
+			{"HTML": ""},
+			{"CSS": ""},
+			{"PHP": ""},
+		],
+		othersProjects: [
+			"3D Graphics Application",
+			"OpenYourGame - Website",
+			"Farming Simulator Mods"
+		],
+		bannerImages : [
+			modsBanner,
+			othersBanner
 		]
 	},
 ];

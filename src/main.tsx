@@ -4,12 +4,14 @@ import './styles/icenstyles.css'
 
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createRouter, createHashHistory } from '@tanstack/react-router'
+import {RouterProvider, createRouter, createBrowserHistory} from '@tanstack/react-router'
 import {routeTree} from "./routeTree.gen.ts";
 
 const router = createRouter({
     routeTree,
-    history: createHashHistory(),
+    scrollRestoration: true,
+    scrollRestorationBehavior: 'instant',
+    history: createBrowserHistory(),
 })
 
 declare module '@tanstack/react-router' {

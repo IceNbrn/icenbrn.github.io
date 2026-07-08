@@ -31,8 +31,12 @@ function ProjectCard({ data }: { data: ProjectDetails | CompanyProject }) {
 								);
 							})}
 						</h5>
-						<p className="card-tech-text"><b>Duration:</b> {data.startDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })} - {data.endDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })} ({data.duration} months)</p>
-						<p className="card-tech-text">« {data.teamType} Project »</p>
+						{(data.startDate !== undefined && data.endDate !== undefined) && (
+							<>
+								<p className="card-tech-text"><b>Duration:</b> {data.startDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })} - {data.endDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })} ({data.duration} months)</p>
+								<p className="card-tech-text">« {data.teamType} Project »</p>
+							</>
+						)}
 					</div>
 				</div>
 				<div className="col-md-11 container text-start">
@@ -69,12 +73,26 @@ function ProjectCard({ data }: { data: ProjectDetails | CompanyProject }) {
 							</div>
 						) : (
 							<div>
-								<p className="card-text"><b>Features:</b></p>
-								<ul>
-									{data.features!.map((feature, index) => (
-										<li key={index}>{feature}</li>
-									))}
-								</ul>
+								{data.othersProjects && (
+									<>
+										<p className="card-text"><b>Other Projects</b></p>
+										<ul>
+											{data.othersProjects!.map((feature, index) => (
+														<li key={index}>{feature}</li>
+											))}
+										</ul>
+									</>
+								)}
+								{data.features && (
+									<>
+										<p className="card-text"><b>Features:</b></p>
+										<ul>
+											{data.features!.map((feature, index) => (
+												<li key={index}>{feature}</li>
+											))}
+										</ul>
+									</>
+								)}
 							</div>
 						)}
 
@@ -83,10 +101,12 @@ function ProjectCard({ data }: { data: ProjectDetails | CompanyProject }) {
 							<Link to={`/projects/${toSlugName(data.name)}` as any}>
 								<button type="button" className="btn btn-primary btn-lg">Details</button>
 							</Link>
-							<a href={data.website.url} target="_blank">
-								<button type="button" className="btn btn-sm btn-outline-secondary m-1">{data.website.name}
-								</button>
-							</a>
+							{data.website && (
+								<a href={data.website.url} target="_blank">
+									<button type="button" className="btn btn-sm btn-outline-secondary m-1">{data.website.name}
+									</button>
+								</a>
+							)}
 
 							{data.sourceCode && (
 								<a href={data.sourceCode} target="_blank">
