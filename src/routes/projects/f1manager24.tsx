@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import ProjectHeader from "../../components/ProjectHeader.tsx";
-import {companyProjects} from "../../data";
+import {commercialProjects} from "../../data";
 import type {ProjectDetails} from "../../types/Project.ts";
 
 export const Route = createFileRoute('/projects/f1manager24')({
@@ -12,7 +12,7 @@ function F1manager24() {
 
   return (
       <>
-        <ProjectHeader data={companyProjects.find(c => c.name.includes("F1 Manager 24")) as ProjectDetails}/>
+        <ProjectHeader data={commercialProjects.find(c => c.name.includes("F1 Manager 24")) as ProjectDetails}/>
 
         <div className="album py-5 bg-icen">
           <div className="container text-start">

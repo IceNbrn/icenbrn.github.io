@@ -33,12 +33,12 @@ function ProjectHeader({ data }: { data: ProjectDetails }) {
 					</div>
 					<div className="d-flex justify-content-center align-items-center">
 						{data.website && (
-							<a href={data.website.url} target="_blank">
+							<a href={data.website.url} target="_blank" rel="noopener noreferrer">
 								<button type="button" className="btn btn-sm btn-primary m-1">{data.website.name}</button>
 							</a>
 						)}
 						{data.sourceCode && (
-							<a href={data.sourceCode} target="_blank">
+							<a href={data.sourceCode} target="_blank" rel="noopener noreferrer">
 								<button type="button" className="btn btn-sm btn-secondary m-1">Source Code</button>
 							</a>
 						)}

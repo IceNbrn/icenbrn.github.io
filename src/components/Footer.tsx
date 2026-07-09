@@ -1,3 +1,5 @@
+import contacts from "../data/Contacts.ts";
+
 function Footer() {
 	return (
 		<footer className="text-muted py-5">
@@ -6,17 +8,19 @@ function Footer() {
 					<div className="col-sm-6 offset-md-1 py-4">
 						<h4 className="text-dark">Contact</h4>
 						<ul className="list-unstyled">
-							<li><a href="https://twitter.com/IceNbrn" target="_blank"
-							       className="text text-decoration-none"><i
-								className="fab fa-twitter-square fa-2x nav-text"></i>&nbsp;Twitter</a></li>
-							<li><a href="mailto:brunoacastanheira@gmail.com" className="text text-decoration-none"><i
-								className="fas fa-envelope-square fa-2x nav-text"></i>&nbsp;Email</a></li>
-							<li><a href="https://www.linkedin.com/in/carlos-bruno-castanheira/" target="_blank"
-							       className="text text-decoration-none"><i
-								className="fab fa-linkedin fa-2x nav-text"></i>&nbsp;LinkedIn</a></li>
-							<li><a href="https://github.com/IceNbrn" target="_blank"
-							       className="text text-decoration-none"><i
-								className="fab fa-github-square fa-2x nav-text"></i>&nbsp;GitHub</a></li>
+							{contacts.map((item) => (
+								<li key={item.name}>
+									<a
+										href={item.url}
+										target="_blank"
+										rel="noreferrer"
+										className="flex items-center gap-3 w-fit text-decoration-none"
+									>
+										<item.Icon size={20} className="text-black"/>
+										<span className="font-medium p-1">{item.name}</span>
+									</a>
+								</li>
+							))}
 						</ul>
 
 						<p>© Copyright

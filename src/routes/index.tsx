@@ -1,8 +1,10 @@
 import {createFileRoute} from '@tanstack/react-router'
 import profilePic from '../assets/images/profile_portfolio_2.png'
-import {companyProjects, personalProjects} from "../data";
+import {commercialProjects, personalProjects} from "../data";
 import ProjectCard from "../components/ProjectCard.tsx";
 import ScrollLink from "../components/ScrollLink.tsx";
+import type {ProjectType} from "../types/Project.ts";
+import {useMemo, useState} from "react";
 
 
 export const Route = createFileRoute('/')({
@@ -10,6 +12,24 @@ export const Route = createFileRoute('/')({
 })
 
 function Home() {
+
+	const filters: { label: string; value: ProjectType | undefined }[] = [
+		{ label: "ALL", value: undefined },
+		{ label: "GAME DEV", value: "GameDev" },
+		{ label: "WEB DEV", value: "WebDev" },
+	];
+
+	const [filterType, setFilterType] = useState<ProjectType | undefined>(undefined);
+
+	const personalProjectsFiltered = useMemo(
+		() => filterType ? personalProjects.filter(p => p.type === filterType) : personalProjects,
+		[personalProjects, filterType]
+	);
+
+	const commercialProjectsFiltered = useMemo(
+		() => filterType ? commercialProjects.filter(p => p.type === filterType) : commercialProjects,
+		[commercialProjects, filterType]
+	);
 	return (
 		<>
 			<div className="py-5 text-center container">
@@ -18,9 +38,9 @@ function Home() {
 						<div className="col-md-3 container">
 							<img className="img-thumbnail" data-src="" alt="profile portfolio"
 								 src={profilePic} data-holder-rendered="true"
-								 style={{maxHeight: '192px', maxWidth: '192px'}}/>
+								 style={{maxHeight: '128px', maxWidth: '128px'}}/>
 						</div>
-						<h1 className="fw-light">About Me</h1>
+						<h2 className="fw-light py-3">About Me</h2>
 						<p className="text-muted">Hello, I'm Bruno Castanheira, a Junior Software Engineer and a gamer that
 							worked at Frontier Developments as a Graduate Programmer.</p>
 						<p className="text-muted">I started playing video games as a child since then it's been my hobby.
@@ -53,10 +73,9 @@ function Home() {
 								More about me
 							</button>
 
-							<ScrollLink to="projects"><a className="btn btn-primary my-2">Projects</a></ScrollLink>
-
+							<ScrollLink to="projects"><a className="m-2 btn btn-primary my-2">Projects</a></ScrollLink>
 						</div>
-						<h4 className="fw-light">Skills</h4>
+						<h4 className="fw-light py-3">Skills</h4>
 						<div>
 							<h4>
 								<span className="badge-ice">C++</span>
@@ -89,13 +108,27 @@ function Home() {
 				</div>
 			</div>
 
-			<div className="album py-5 bg-icen">
+			<div id="projects" className="album py-3 bg-icen">
 				<div className="container">
 
-					<h2 className="pb-2 border-bottom text-center text-white bg-orange-icen" id="projects">Commercial
+					<ScrollLink to="projects">
+						<div className="mb-3">
+							{filters.map(f => (
+								<button
+									key={f.label}
+									className={`btn btn-outline-blue mx-2 ${filterType === f.value ? "active" : ""}`}
+									onClick={() => setFilterType(f.value)}
+								>
+									{f.label}
+								</button>
+							))}
+						</div>
+					</ScrollLink>
+
+					<h2 className="pb-2 border-bottom text-center text-white bg-orange-icen">Commercial
 						Projects</h2>
 
-					{companyProjects.map((companyObject, index) => {
+					{commercialProjectsFiltered.map((companyObject, index) => {
 
 						return (
 							<ProjectCard
@@ -108,7 +141,7 @@ function Home() {
 					<h2 className="pb-2 border-bottom text-center text-white bg-blue-icen mt-5">Personal
 						Projects</h2>
 
-					{personalProjects.map((personalObject, index) => {
+					{personalProjectsFiltered.map((personalObject, index) => {
 
 						return (
 							<ProjectCard

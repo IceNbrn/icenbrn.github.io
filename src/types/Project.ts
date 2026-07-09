@@ -1,10 +1,11 @@
-export type ProjectType = "Solo" | "Team" | "Company";
+export type TeamType = "Solo" | "Team" | "Company";
+export type ProjectType = "GameDev" | "WebDev" | "Other";
 
 export interface ProjectDetails {
 	name: string,
 	duration: number,
 	description: string,
-	teamType?: ProjectType,
+	teamType?: TeamType,
 	technologies: Record<string, string>[],
 	website?: Record<string, string>,
 	sourceCode?: string,
@@ -12,7 +13,8 @@ export interface ProjectDetails {
 	endDate?: Date,
 	features?: string[],
 	bannerImages: string[],
-	othersProjects?: string[]
+	othersProjects?: string[],
+	type: ProjectType,
 }
 
 export interface CompanyProject extends ProjectDetails {
@@ -23,7 +25,7 @@ export interface CompanyProject extends ProjectDetails {
 export interface OthersProject {
 	name: string,
 	description: string,
-	teamType?: ProjectType,
+	teamType?: TeamType,
 	downloads?: number,
 	url?: string,
 	image: string,

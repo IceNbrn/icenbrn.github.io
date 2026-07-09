@@ -1,5 +1,7 @@
 import type {ProjectDetails} from "../types/Project.ts";
 
+import tmwWebsite from '../assets/images/tmwWebsite.jpg';
+
 import iceboxBanner from '../assets/images/icebox_1.jpg';
 import iceboxBannerGif from '../assets/images/icebox_game.gif';
 
@@ -18,9 +20,37 @@ import knowTheWayBannerGif from '../assets/images/ktw_pickup.gif';
 import modsBanner from '../assets/images/mods.jpg';
 import othersBanner from '../assets/images/others.jpg';
 
-
-
 export const personalProjects: ProjectDetails[] = [
+	{
+		name: "TMW Website",
+		duration: 4,
+		description: "WEBSITE DESCRIPTION",
+		teamType: "Solo",
+		technologies: [
+			{"TypeScript": ""},
+			{"C#": ""},
+			{"Entity Framework Core": ""},
+			{"React": ""},
+			{"NextJS": ""},
+			{"Tailwindcss": ""},
+			{"BetterAuth": ""},
+		],
+		website: {
+			"name": "Website",
+			"url": "https://link",
+		},
+		startDate: new Date("2022-07-01"),
+		endDate: new Date("2023-04-01"),
+		features: [
+			"Features list"
+		],
+		sourceCode: "https://git",
+		bannerImages : [
+			tmwWebsite,
+			tmwWebsite
+		],
+		type: "WebDev",
+	},
 	{
 		name: "Icebox",
 		duration: 9,
@@ -47,7 +77,8 @@ export const personalProjects: ProjectDetails[] = [
 		bannerImages : [
 			iceboxBanner,
 			iceboxBannerGif
-		]
+		],
+		type: "GameDev"
 	},
 	{
 		name: "Hotshots",
@@ -74,7 +105,8 @@ export const personalProjects: ProjectDetails[] = [
 		bannerImages : [
 			hotshotsBanner,
 			hotshotsBannerGif
-		]
+		],
+		type: "GameDev"
 	},
 	{
 		name: "ISpace",
@@ -100,7 +132,8 @@ export const personalProjects: ProjectDetails[] = [
 		bannerImages : [
 			ispaceBanner,
 			ispaceBannerGif
-		]
+		],
+		type: "GameDev"
 	},
 	{
 		name: "Exploration",
@@ -125,7 +158,8 @@ export const personalProjects: ProjectDetails[] = [
 		bannerImages : [
 			explorationBanner,
 			explorationBannerGif
-		]
+		],
+		type: "GameDev"
 	},
 	{
 		name: "Know The Way",
@@ -153,7 +187,8 @@ export const personalProjects: ProjectDetails[] = [
 		bannerImages : [
 			knowTheWayBanner,
 			knowTheWayBannerGif
-		]
+		],
+		type: "GameDev"
 	},
 	{
 		name: "Others",
@@ -172,11 +207,13 @@ export const personalProjects: ProjectDetails[] = [
 		othersProjects: [
 			"3D Graphics Application",
 			"OpenYourGame - Website",
-			"Farming Simulator Mods"
+			"Farming Simulator Mods",
+			"GameJam"
 		],
 		bannerImages : [
 			modsBanner,
 			othersBanner
-		]
+		],
+		type: "Other"
 	},
 ];

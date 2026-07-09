@@ -1,2 +1,2 @@
-export { companyProjects } from "./CompanyProjects";
+export { commercialProjects } from "./CommercialProjects.ts";
 export { personalProjects } from "./PersonalProjects";

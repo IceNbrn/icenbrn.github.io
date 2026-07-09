@@ -2,7 +2,7 @@ import type {CompanyProject} from "../types/Project.ts";
 
 import f1Manager from "../assets/images/f1manager.jpg";
 
-export const companyProjects: CompanyProject[] = [
+export const commercialProjects: CompanyProject[] = [
 	{
 		name: "F1 Manager 24",
 		duration: 6,
@@ -32,6 +32,7 @@ export const companyProjects: CompanyProject[] = [
 		bannerImages: [
 			f1Manager,
 			f1Manager
-		]
+		],
+		type: "GameDev"
 	},
 ];

@@ -5,6 +5,7 @@ import fs22ModGranary from "../assets/images/fs22_mod1.jpg";
 import fs25ConcreteSupport from "../assets/images/fs25ConcreteSupport.jpg";
 import p3d from "../assets/images/p3d.jpg";
 import oyg from "../assets/images/oyg_main.jpg";
+import faraday from "../assets/images/faraday_2.jpg";
 
 export const otherProjects: OthersProject[] = [
 	{
@@ -22,27 +23,34 @@ export const otherProjects: OthersProject[] = [
 		image: oyg
 	},
 	{
-		name: "Farming Simulator 25 Mod ",
-		description: "Concrete Wood Support | 3D Prop ",
+		name: "Farming Simulator 25 Mod",
+		description: "Concrete Wood Support | 3D Prop",
 		teamType: "Solo",
 		url: "https://farming-simulator.com/mod.php?mod_id=306177&title=fs2025",
 		image: fs25ConcreteSupport,
 		downloads: 190000
 	},
 	{
-		name: "Farming Simulator 22 Mod ",
-		description: "Granary Portuguese | 3D Prop ",
+		name: "Farming Simulator 22 Mod",
+		description: "Granary Portuguese | 3D Prop",
 		teamType: "Solo",
 		url: "https://farming-simulator.com/mod.php?lang=en&country=us&mod_id=257826&title=fs2022",
 		image: fs22ModGranary,
 		downloads: 7000
 	},
 	{
-		name: "Farming Simulator 19 Mod ",
-		description: "Granary Portuguese | 3D Prop ",
+		name: "Farming Simulator 19 Mod",
+		description: "Granary Portuguese | 3D Prop",
 		teamType: "Solo",
 		url: "https://www.farming-simulator.com/mod.php?lang=en&country=us&mod_id=166844&title=fs2019",
 		image: fs19ModGranary,
 		downloads: 6100
+	},
+	{
+		name: "Faraday",
+		description: "Game Jam",
+		teamType: "Team",
+		url: "https://ipcagamejam.itch.io/faraday",
+		image: faraday
 	},
 ];

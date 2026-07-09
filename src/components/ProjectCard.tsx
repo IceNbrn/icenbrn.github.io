@@ -102,14 +102,14 @@ function ProjectCard({ data }: { data: ProjectDetails | CompanyProject }) {
 								<button type="button" className="btn btn-primary btn-lg">Details</button>
 							</Link>
 							{data.website && (
-								<a href={data.website.url} target="_blank">
+								<a href={data.website.url} target="_blank" rel="noopener noreferrer">
 									<button type="button" className="btn btn-sm btn-outline-secondary m-1">{data.website.name}
 									</button>
 								</a>
 							)}
 
 							{data.sourceCode && (
-								<a href={data.sourceCode} target="_blank">
+								<a href={data.sourceCode} target="_blank" rel="noopener noreferrer">
 									<button type="button" className="btn btn-sm btn-outline-secondary m-1">Source Code
 									</button>
 								</a>
