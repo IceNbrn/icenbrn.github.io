@@ -4,6 +4,7 @@ import {iceboxImages} from "../../assets/images/icebox-images.ts";
 import {CodeBlock} from "../../components/CodeBlock.tsx";
 import {personalProjects} from "../../data";
 import ScrollLink from "../../components/ScrollLink.tsx";
+import {ImageWithFullscreen} from "../../components/ImageWithFullscreen.tsx";
 
 export const Route = createFileRoute('/projects/icebox')({
 	component: IceBox,
@@ -51,11 +52,7 @@ struct FSpaceShipPath
 											<tbody>
 												<tr>
 													<td className="col-md-6">
-														<div className="embed-responsive embed-responsive-16by9">
-															<img className="card-img-top" data-src="" alt="icebox game gif"
-																 src={iceboxImages.gameGif}
-																 data-holder-rendered="true"/>
-														</div>
+														<ImageWithFullscreen src={iceboxImages.gameGif} alt="icebox game gif" />
 													</td>
 
 													<td className="col-md-6">
@@ -131,10 +128,7 @@ struct FSpaceShipPath
 											<tr>
 												<td className="col-md-9">
 													<figure className="figure">
-														<img className="card-img-top" data-src=""
-														     alt="icebox dynamic box spawner 1"
-														     src={iceboxImages.dynamicBoxSpawners[0]}
-														     data-holder-rendered="true"/>
+														<ImageWithFullscreen src={iceboxImages.dynamicBoxSpawners[0]} alt="icebox dynamic box spawner 1" />
 														<figcaption className="figure-caption text-center">Figure 1
 														</figcaption>
 													</figure>
@@ -142,10 +136,7 @@ struct FSpaceShipPath
 
 												<td className="col-md-3">
 													<figure className="figure">
-														<img className="card-img-top" data-src=""
-														     alt="icebox dynamic box spawner 2"
-														     src={iceboxImages.dynamicBoxSpawners[1]}
-														     data-holder-rendered="true"/>
+														<ImageWithFullscreen src={iceboxImages.dynamicBoxSpawners[1]} alt="icebox dynamic box spawner 2" />
 														<figcaption className="figure-caption text-center">Figure 2
 														</figcaption>
 													</figure>
@@ -162,10 +153,7 @@ struct FSpaceShipPath
 											<tr>
 												<td className="col-md-9">
 													<figure className="figure">
-														<img className="card-img-top" data-src=""
-														     alt="icebox dynamic box spawner 3"
-														     src={iceboxImages.dynamicBoxSpawners[2]}
-														     data-holder-rendered="true"/>
+														<ImageWithFullscreen src={iceboxImages.dynamicBoxSpawners[2]} alt="icebox dynamic box spawner 3" />
 														<figcaption className="figure-caption text-center">Figure 3
 														</figcaption>
 													</figure>
@@ -173,10 +161,7 @@ struct FSpaceShipPath
 
 												<td className="col-md-3">
 													<figure className="figure">
-														<img className="card-img-top" data-src=""
-														     alt="icebox dynamic box spawner 4"
-														     src={iceboxImages.dynamicBoxSpawners[3]}
-														     data-holder-rendered="true"/>
+														<ImageWithFullscreen src={iceboxImages.dynamicBoxSpawners[3]} alt="icebox dynamic box spawner 4" />
 														<figcaption className="figure-caption text-center">Figure 4
 														</figcaption>
 													</figure>
@@ -232,9 +217,7 @@ struct FSpaceShipPath
 									</div>
 									<h6><b>Final Version:</b></h6>
 									<div className="col-md-7 container">
-										<img className="card-img-top" data-src="" alt="gravity gun gif"
-										     src={iceboxImages.gravityGun}
-										     data-holder-rendered="true"/>
+										<ImageWithFullscreen src={iceboxImages.gravityGun} alt="gravity gun gif" />
 									</div>
 								</div>
 							</div>
@@ -308,11 +291,7 @@ struct FSpaceShipPath
 										difficulty or by
 										completion.</p>
 									<div className="col-md-9 container">
-										<a href={iceboxImages.missions[0]} target="_blank"><img className="card-img-top"
-										                                                        data-src=""
-										                                                        alt="gravity gun gif"
-										                                                        src={iceboxImages.missions[0]}
-										                                                        data-holder-rendered="true"/></a>
+										<ImageWithFullscreen src={iceboxImages.missions[0]} alt="icebox mission ui" />
 									</div>
 
 									<p>The mission content row ui has 2 parameters: MissionData - has all the
@@ -323,11 +302,7 @@ struct FSpaceShipPath
 										boxes to move, and if
 										the mission is finished.</p>
 									<div className="col-md-10 container">
-										<a href={iceboxImages.missions[1]} target="_blank"><img className="card-img-top"
-										                                                        data-src=""
-										                                                        alt="gravity gun gif"
-										                                                        src={iceboxImages.missions[1]}
-										                                                        data-holder-rendered="true"/></a>
+										<ImageWithFullscreen src={iceboxImages.missions[1]} alt="icebox mission ui unreal" />
 									</div>
 
 								</div>
@@ -381,41 +356,28 @@ struct FSpaceShipPath
 									<div className="container px-2 text-center">
 										<div className="row gy-5">
 											<div className="col-6">
-												<a href={iceboxImages.mainMenu} target="_blank"><img
-													src={iceboxImages.mainMenu} className="d-block w-100"
-													alt="icebox mainmenu ui"/></a>
+												<ImageWithFullscreen src={iceboxImages.mainMenu} alt="icebox mainmenu ui" />
 												<div className="p-2">MAIN MENU</div>
 											</div>
 											<div className="col-6">
-												<a href={iceboxImages.help} target="_blank"><img src={iceboxImages.help}
-												                                                 className="d-block w-100"
-												                                                 alt="icebox help ui"/></a>
+												<ImageWithFullscreen src={iceboxImages.help} alt="icebox help ui" />
 												<div className="p-2">HELP</div>
 											</div>
 											<div className="col-6">
-												<a href={iceboxImages.settings} target="_blank"><img
-													src={iceboxImages.settings} className="d-block w-100"
-													alt="icebox settings ui"/></a>
+												<ImageWithFullscreen src={iceboxImages.settings} alt="icebox settings ui" />
 												<div className="p-2">SETTINGS</div>
 											</div>
 											<div className="col-6">
-												<a href={iceboxImages.pauseMenu} target="_blank"><img
-													src={iceboxImages.pauseMenu} className="d-block w-100"
-													alt="icebox pausemenu ui"/></a>
+												<ImageWithFullscreen src={iceboxImages.pauseMenu} alt="icebox pausemenu ui" />
 												<div className="p-2">PAUSE MENU</div>
 											</div>
 											<div className="col-6">
-												<a href={iceboxImages.missions[0]} target="_blank"><img
-													src={iceboxImages.missions[0]}
-													className="d-block w-100"
-													alt="icebox missions ui"/></a>
+												<ImageWithFullscreen src={iceboxImages.missions[0]} alt="icebox missions ui" />
 												<div className="p-2">MISSIONS</div>
 											</div>
 											<div className="col-6">
 												<div className="embed-responsive embed-responsive-16by9">
-													<a href={iceboxImages.gravityGun} target="_blank"><img
-														src={iceboxImages.gravityGun} className="d-block w-80 card-img-top"
-														alt="icebox missions ui"/></a>
+													<ImageWithFullscreen src={iceboxImages.gravityGun} alt="icebox gravity gun gif" />
 												</div>
 												<div className="p-2">GRAVITY GUN HUD</div>
 											</div>
@@ -423,8 +385,6 @@ struct FSpaceShipPath
 									</div>
 								</div>
 							</div>
-
-
 						</div>
 					</div>
 				</div>

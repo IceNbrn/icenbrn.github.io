@@ -3,6 +3,7 @@ import ProjectHeader from "../../components/ProjectHeader.tsx";
 import {explorationImages} from "../../assets/images/exploration-images.ts";
 import {CodeBlock} from "../../components/CodeBlock.tsx";
 import {personalProjects} from "../../data";
+import {ImageWithFullscreen} from "../../components/ImageWithFullscreen.tsx";
 
 export const Route = createFileRoute('/projects/exploration')({
 	component: Exploration,
@@ -160,9 +161,9 @@ float ShipParkingAssist::GetLandingScore() const
 									<div className="card-body">
 										<p><b>Asteroids Spawner</b></p>
 										<div className="col-md-9 container">
-											<img className="card-img-top" alt="exploration image"
-											     src={explorationImages.asteroids}/>
+											<ImageWithFullscreen src={explorationImages.asteroids} alt="exploration image" />
 										</div>
+
 										<br/>
 										<p>A small system to spawn asteroids in random positions with collision
 											prevention</p>
@@ -190,8 +191,7 @@ PROP_PARAM(String, m_AsteroidNode        , "nodes/defaultAsteroid.node")
 									<div className="card-body">
 										<p><b>Mini Air Traffic Controller</b></p>
 										<div className="col-md-5 container">
-											<img className="card-img-top" alt="exploration atc image"
-											     src={explorationImages.atc}/>
+											<ImageWithFullscreen src={explorationImages.atc} alt="exploration atc image" />
 										</div>
 										<br/>
 										<p>The Air Traffic Controller has a list of landing zones. Every time a

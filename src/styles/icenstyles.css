@@ -306,6 +306,14 @@ div.gravgun-hud{
     background-size: cover;
 }
 
+.masthead-tmwwebsite {
+    background: url(../assets/images/tmw_website_dashboard.jpg);
+    background-position: 90% 10%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
 .masthead-exploration {
     background: url(../assets/images/exploration_notext.jpg);
     background-position: center;

@@ -41,29 +41,19 @@ function Home() {
 								 style={{maxHeight: '128px', maxWidth: '128px'}}/>
 						</div>
 						<h2 className="fw-light py-3">About Me</h2>
-						<p className="text-muted">Hello, I'm Bruno Castanheira, a Junior Software Engineer and a gamer that
-							worked at Frontier Developments as a Graduate Programmer.</p>
-						<p className="text-muted">I started playing video games as a child since then it's been my hobby.
-							After learning the basics of programming I started creating games, now I can combine the two,
-							and it is something that I enjoy.
+						<p className="text-muted">
+							I'm Bruno Castanheira, a <b>Junior Software Engineer</b> and former <b>Graduate Programmer at Frontier Developments</b>. I have
+						background in Digital Games Development Engineering and experience with <b>C++, C#, Java, Unity and Unreal Engine</b>
 						</p>
+
 						<div className="container collapse" id="moreAboutMe">
-							<p className="text-muted">I have a bachelor's degree in Digital Games Development
-								Engineering, <b>experience</b> with <b>C++, C#, Java, Unity, Unigine Engine</b>. C# was
-								mainly used in Unity, and Mono Game.
+							<p className="text-muted">
+								My interest in programming started with games, starting with Java plugins for Minecraft before moving into <b>C# and C++</b> for video games.
+								I enjoy building gameplay systems, solving technical problems. I've also been expanding into web development again, having first explored it
+								in high school with <b>PHP and ASP</b>. Recently, I built a private community website using <b>React, Next.js, TypeScript and a .NET API.</b>
 							</p>
 							<p className="text-muted">
-								Java was my first programming language, in that time I was playing Minecraft and I got
-								interested in creating plugins for it.
-							</p>
-							<p className="text-muted">
-								C# has been my number one language before working at Frontier Developments, so
-								now <b>C++</b> is the one where I have <b>real work experience</b>, I started learning it at
-								the University for a 3D Graphics Application. I used C++ with Unigine Engine and <b>Unreal
-								Engine</b>.
-							</p>
-							<p className="text-muted">
-								<b>Hobbies:</b> Gaming, Programming, Biking and Sim Racing.
+								In my free time I enjoy gaming, cycling and sim racing.
 							</p>
 						</div>
 						<div className="m-3">

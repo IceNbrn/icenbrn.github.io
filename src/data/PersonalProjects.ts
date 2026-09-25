@@ -1,6 +1,7 @@
 import type {ProjectDetails} from "../types/Project.ts";
 
 import tmwWebsite from '../assets/images/tmwWebsite.jpg';
+import tmwWebsiteGif from '../assets/images/tmw_website.gif';
 
 import iceboxBanner from '../assets/images/icebox_1.jpg';
 import iceboxBannerGif from '../assets/images/icebox_game.gif';
@@ -23,31 +24,33 @@ import othersBanner from '../assets/images/others.jpg';
 export const personalProjects: ProjectDetails[] = [
 	{
 		name: "TMW Website",
-		duration: 4,
-		description: "WEBSITE DESCRIPTION",
+		duration: 9,
+		description: "This project contains the TMW website and its .NET API. I built it to learn more about full-stack web development and to create tools for my private gaming community.\n" +
+			"\n" +
+			"It is used by me and my friends alongside a Discord bot to help manage and support the community.",
 		teamType: "Solo",
 		technologies: [
 			{"TypeScript": ""},
 			{"C#": ""},
+			{".NET": ""},
 			{"Entity Framework Core": ""},
 			{"React": ""},
 			{"NextJS": ""},
 			{"Tailwindcss": ""},
 			{"BetterAuth": ""},
 		],
-		website: {
-			"name": "Website",
-			"url": "https://link",
-		},
-		startDate: new Date("2022-07-01"),
-		endDate: new Date("2023-04-01"),
+		startDate: new Date("2026-01-01"),
+		endDate: new Date("2026-09-14"),
 		features: [
-			"Features list"
+			"Role-based authentication and access control",
+			"Community dashboard with recent activity and statistics",
+			"Betting history with active and recent bets",
+			"Qwerty Gifts analytics and MVP tracking",
+			"Admin-only user management"
 		],
-		sourceCode: "https://git",
 		bannerImages : [
 			tmwWebsite,
-			tmwWebsite
+			tmwWebsiteGif
 		],
 		type: "WebDev",
 	},
