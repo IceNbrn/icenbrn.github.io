@@ -13,7 +13,7 @@ function ProjectHeader({ data }: { data: ProjectDetails }) {
 							<p className="text-white"><b>Duration: {data.duration} months</b></p>
 						)}
 						{data.teamType && (
-							<p className="text-white">« {data.teamType} Project » </p>
+							<p className="text-white">| {data.teamType} Project |</p>
 						)}
 						<div className="text-white">
 							<b>Technologies:</b>

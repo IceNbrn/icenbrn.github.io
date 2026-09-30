@@ -134,7 +134,7 @@ function TmwWebsite() {
                   <div className="mb-4">
                     <h6>How Authentication & Roles Work</h6>
                     <p className="card-text text-secondary mb-2">
-                      Users sign in via standard authentication with discord account handled through our Next.js frontend and .NET Web API backend.
+                      Users sign in via standard authentication with a Discord account handled through our Next.js frontend and .NET Web API backend.
                       When an authenticated user makes an API request or navigates the application, the .NET backend queries
                       the database to verify their assigned role directly from the <code>Users</code> table on every request,
                       ensuring real-time permission accuracy.
@@ -204,7 +204,7 @@ function TmwWebsite() {
                     </table>
 
                     <p className="card-text text-muted small">
-                      <strong>Note on owner:</strong> I'm trying to replicate how discord handles owner's permissions.
+                      <strong>Note on owner:</strong> I'm trying to replicate how Discord handles owner's permissions.
                     </p>
                   </div>
                 </Section>
@@ -212,7 +212,7 @@ function TmwWebsite() {
                 {/* ================= DASHBOARD ================= */}
                 <Section id="dashboard" title="Community Dashboard">
                   <p className="card-text">
-                    The Dashboard gives users a resume of what's happening in the community, it shows the recent bets, who has gifted more qwerty gifts, the average
+                    The Dashboard gives users a summary of what's happening in the community, it shows the recent bets, who has gifted the most Qwerty gifts, the average
                     amount spent on bets, the discord usage, and also gets the fastest times from our mini game (TMW Balls).
                     In the future it will support a Racing Schedule and a Leaderboard.
                   </p>
@@ -238,11 +238,11 @@ function TmwWebsite() {
                 {/* ================= PROFILE ================= */}
                 <Section id="profile" title="Public Profiles">
                   <p className="card-text">
-                    The user profile shows how many gifts a user received and gifted, the bets statistics, and top 3 times / last 3 races from tmw balls mini game.
+                    The user profile shows how many gifts a user received and gifted, the bets statistics, and top 3 times / last 3 races from the TMW Balls mini-game.
                   </p>
 
                   <p className="card-text">
-                    As of now is a bit empty, but that will change when I have more data to display.
+                    As of now, it is a bit empty, but that will change when I have more data to display.
                   </p>
 
                   <div className="row">
@@ -267,8 +267,8 @@ function TmwWebsite() {
                 <Section id="active-recent-bets" title="Active & Recent Bets">
                   <p className="card-text">
                     There are two pages, one for active bets and another recent bets.
-                    Active Bets: Only shows bets that users can still place a bet and has pagination.
-                    Recent Bets: Shows only the last 4 bets, if one of them is open it will show buttons to place a bet, if not, will show the winner.
+                    Active Bets: Only shows bets that users can still place bets and has pagination.
+                    Recent Bets: Shows only the last 4 bets. If one of them is open, it will show buttons to place a bet, otherwise, it shows the winner.
                   </p>
 
                   <div className="row g-3">
@@ -300,7 +300,7 @@ function TmwWebsite() {
                 {/* ================= QWERTYGIFTS ================= */}
                 <Section id="qwertygifts" title="Qwerty Gifts Analytics">
                   <p className="card-text">
-                    Displays the number of Qwerty gift senders over the past 5 months and how many they sent.
+                    Displays the number of Qwerty gift senders over the past 5 months how many gifts they sent.
                   </p>
 
                   <div className="row">
@@ -324,7 +324,7 @@ function TmwWebsite() {
                 {/* ================= USERS ================= */}
                 <Section id="users" title="Admin User Management">
                   <p className="card-text">
-                    In the users tab admins can see all the users and if they select one of them they can see details and edit role or delete a user.
+                    In the Users tab, admins can see all users. Selecting one shows details and lets them edit the role or delete the user.
                   </p>
 
                   <div className="col-md-5">
@@ -346,7 +346,7 @@ function TmwWebsite() {
                           Admin Users
                         </figcaption>
                         <p className="text-center card-text text-muted small">
-                          Screenshot blurred on purpose to not leak users data
+                          Screenshot blurred on purpose to not leak user's data
                         </p>
                       </figure>
                     </div>
@@ -397,7 +397,7 @@ function TmwWebsite() {
 
                   <p className="card-text">
                     The pagination is done server-side, the client sends <code>page</code>, <code>size</code> and <code>transaction type</code>, the service in the API builds
-                    a query with Skip & Take that will return the page of rows alongside a <code>totalRecords</code>
+                    a query with Skip & Take that will return the requested page of rows and a <code>totalRecords</code> count.
                   </p>
 
                   <p className="card-text">Ordering is available but that's done on the client side and will only reorder the current page.</p>

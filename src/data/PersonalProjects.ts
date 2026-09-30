@@ -25,9 +25,9 @@ export const personalProjects: ProjectDetails[] = [
 	{
 		name: "TMW Website",
 		duration: 9,
-		description: "This project contains the TMW website and its .NET API. I built it to learn more about full-stack web development and to create tools for my private gaming community.\n" +
+		description: "This project includes the TMW website and its .NET API. I built it to learn more about full-stack web development and to create tools for my private gaming community.\n" +
 			"\n" +
-			"It is used by me and my friends alongside a Discord bot to help manage and support the community.",
+			"It is used by my friends and me alongside a Discord bot to help manage and support the community.",
 		teamType: "Solo",
 		technologies: [
 			{"TypeScript": ""},
@@ -35,9 +35,9 @@ export const personalProjects: ProjectDetails[] = [
 			{".NET": ""},
 			{"Entity Framework Core": ""},
 			{"React": ""},
-			{"NextJS": ""},
-			{"Tailwindcss": ""},
-			{"BetterAuth": ""},
+			{"Next.js": ""},
+			{"Tailwind CSS": ""},
+			{"Better Auth": ""},
 		],
 		startDate: new Date("2026-01-01"),
 		endDate: new Date("2026-09-14"),
@@ -114,7 +114,7 @@ export const personalProjects: ProjectDetails[] = [
 	{
 		name: "ISpace",
 		duration: 5,
-		description: "ISpace is a multiplayer first person sandbox game. It has a Deathmatch mode and I plan to make other game modes.",
+		description: "ISpace is a multiplayer first-person sandbox game. It has a Deathmatch mode and I plan to add more game modes.",
 		teamType: "Solo",
 		technologies: [
 			{"Unity": "https://unity.com/"},
@@ -141,7 +141,7 @@ export const personalProjects: ProjectDetails[] = [
 	{
 		name: "Exploration",
 		duration: 6,
-		description: "This is a tech demo. Developed as a testing ground for experimental mechanics and systems.",
+		description: "This is a tech demo. It was developed as a testing ground for experimental mechanics and systems.",
 		teamType: "Solo",
 		technologies: [
 			{"Unigine": "https://unigine.com/"},
@@ -155,7 +155,7 @@ export const personalProjects: ProjectDetails[] = [
 		startDate: new Date("2021-04-01"),
 		endDate: new Date("2021-11-01"),
 		features: [
-			"Spaceship Controller", "Spaceship Landing Assist", "Mini 'Air Traffic Controller'", "Car Controller", "Asteroids Spawner"
+			"Spaceship Controller", "Spaceship Landing Assist", "Mini 'Air Traffic Controller'", "Car Controller", "Asteroid Spawner"
 		],
 		sourceCode: "https://bitbucket.org/IceNdev/explorationgame/src/master/",
 		bannerImages : [
@@ -167,7 +167,7 @@ export const personalProjects: ProjectDetails[] = [
 	{
 		name: "Know The Way",
 		duration: 3,
-		description: "A co-op game, where 2 players need to find the exit.\n" +
+		description: "A co-op game in which two players work together to find the exit.\n" +
 			"\n" +
 			"Throughout the game, players need to complete the puzzles to unlock the exit.",
 		teamType: "Team",
@@ -196,7 +196,7 @@ export const personalProjects: ProjectDetails[] = [
 	{
 		name: "Others",
 		duration: 0,
-		description: "Mods or others side projects.",
+		description: "Mods and others side projects.",
 		technologies: [
 			{"OpenGL": "https://www.opengl.org/"},
 			{"ImGui": "https://github.com/ocornut/imgui"},

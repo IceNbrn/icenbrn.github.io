@@ -107,7 +107,7 @@ public void AddWater(float value) => _waterLoaded += value * Time.deltaTime;`;
 										<p>Each vehicle has a price and depending on its function it can be more
 											expensive.</p>
 										<p>The main objective of the game is to put out fires. When you complete a
-											mission, you will receive an reward.</p>
+											mission, you will receive a reward.</p>
 									</div>
 									<div className="col-md-9 container">
 										<div className="video-wrapper">
@@ -123,7 +123,7 @@ public void AddWater(float value) => _waterLoaded += value * Time.deltaTime;`;
 								<div className="col-md-12 card-icen container">
 									<div className="card-body">
 										<h3>Features</h3>
-										<p>The <b>Shopping / Garage System</b>, is the system to buy a new vehicles and
+										<p>The <b>Shopping / Garage System</b>, is the system to buy new vehicles and
 											spawn them in the correct garage.
 												Every garage has an enum, the enum is the size of that garage and
 												corresponds to the vehicle's size too. The size goes from small to
@@ -143,7 +143,7 @@ public void AddWater(float value) => _waterLoaded += value * Time.deltaTime;`;
 											Another feature that I made was the <b>water system</b>. It gives you the
 											ability to fill the vehicle's water tank or even transfer to another
 											vehicle.
-											To use it there's a hose. The player can attach it to vehicle and a water
+											To use it there's a hose. The player can attach to a vehicle and a water
 											source, that can be a hydrant or another vehicle.
 										</p>
 								</div>

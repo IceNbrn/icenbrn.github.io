@@ -22,14 +22,14 @@ function Exploration() {
 								<div className="col-md-12 card-icen container">
 									<div className="card-body">
 										<h3>Story</h3>
-										<p>This is a tech demo. Developed as a testing ground for experimental mechanics and systems.</p>
+										<p>This is a tech demo. It was developed as a testing ground for experimental mechanics and systems.</p>
 										<p className="card-text"><b>Game Systems: </b></p>
 										<div className="col-md-9">
 											<ul>
 												<li>Spaceship Controller</li>
 												<li>Spaceship Landing Assist</li>
 												<li>Car Controller</li>
-												<li>Asteroids Spawner</li>
+												<li>Asteroid Spawner</li>
 												<li>Air Traffic Controller</li>
 											</ul>
 										</div>
@@ -88,7 +88,7 @@ function Exploration() {
 												<tr>
 													<td className="col-md-1 text-center">[R]</td>
 													<td className="col-md-8">Braking Mode (adds drag to the spaceship,
-														making the spaceship slow down if doesn't have other forces
+														making the spaceship slow down if it doesn't have other forces
 														being applied)
 													</td>
 												</tr>
@@ -159,7 +159,7 @@ float ShipParkingAssist::GetLandingScore() const
 							<div className="row">
 								<div className="col-md-12 card-icen container">
 									<div className="card-body">
-										<p><b>Asteroids Spawner</b></p>
+										<p><b>Asteroid Spawner</b></p>
 										<div className="col-md-9 container">
 											<ImageWithFullscreen src={explorationImages.asteroids} alt="exploration image" />
 										</div>

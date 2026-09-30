@@ -43,13 +43,13 @@ function Home() {
 						<h2 className="fw-light py-3">About Me</h2>
 						<p className="text-muted">
 							I'm Bruno Castanheira, a <b>Junior Software Engineer</b> and former <b>Graduate Programmer at Frontier Developments</b>. I have
-						background in Digital Games Development Engineering and experience with <b>C++, C#, Java, Unity and Unreal Engine</b>
+						a background in Digital Games Development Engineering and experience with <b>C++, C#, Java, Unity and Unreal Engine</b>
 						</p>
 
 						<div className="container collapse" id="moreAboutMe">
 							<p className="text-muted">
 								My interest in programming started with games, starting with Java plugins for Minecraft before moving into <b>C# and C++</b> for video games.
-								I enjoy building gameplay systems, solving technical problems. I've also been expanding into web development again, having first explored it
+								I enjoy building gameplay systems, and solving technical problems. I've also been returning into web development again, having first explored it
 								in high school with <b>PHP and ASP</b>. Recently, I built a private community website using <b>React, Next.js, TypeScript and a .NET API.</b>
 							</p>
 							<p className="text-muted">
@@ -82,7 +82,7 @@ function Home() {
 						<div>
 							<h4>
 								<span className="badge-ice">Unreal Engine</span>
-								<span className="badge-ice">Unity Engine</span>
+								<span className="badge-ice">Unity</span>
 								<span className="badge-ice">Perforce</span>
 								<span className="badge-ice">Git</span>
 								<span className="badge-ice">Jira</span>

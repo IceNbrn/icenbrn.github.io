@@ -34,7 +34,7 @@ function ProjectCard({ data }: { data: ProjectDetails | CompanyProject }) {
 						{(data.startDate !== undefined && data.endDate !== undefined) && (
 							<>
 								<p className="card-tech-text"><b>Duration:</b> {data.startDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })} - {data.endDate.toLocaleDateString("en-US", { month: "long", year: "numeric" })} ({data.duration} months)</p>
-								<p className="card-tech-text">« {data.teamType} Project »</p>
+								<p className="card-tech-text">| {data.teamType} Project |</p>
 							</>
 						)}
 					</div>

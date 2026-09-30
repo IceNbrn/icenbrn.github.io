@@ -43,10 +43,7 @@ struct FSpaceShipPath
 												Engine</a>, but after
 											some time I decided to switch to Unreal Engine 5.</p>
 										<p className="card-text">Right now the player's objective is to accept a mission
-											and store the boxes
-											in the
-											space station receiver as quickly as possible after doing that they receive
-											a score.</p>
+											and store the boxes	in the space station receiver as quickly as possible. Once they do, they receive a score.</p>
 
 										<table>
 											<tbody>
