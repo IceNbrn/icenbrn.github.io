@@ -71,6 +71,7 @@ function Home() {
 								<span className="badge-ice">C++</span>
 								<span className="badge-ice">C#</span>
 								<span className="badge-ice">.NET</span>
+								<span className="badge-ice">TypeScript</span>
 								<span className="badge-ice">SQLite</span>
 								<span className="badge-ice">PostgreSQL</span>
 								<span className="badge-ice">Java</span>
@@ -83,6 +84,8 @@ function Home() {
 							<h4>
 								<span className="badge-ice">Unreal Engine</span>
 								<span className="badge-ice">Unity</span>
+								<span className="badge-ice">React</span>
+								<span className="badge-ice">Next.js</span>
 								<span className="badge-ice">Perforce</span>
 								<span className="badge-ice">Git</span>
 								<span className="badge-ice">Jira</span>
